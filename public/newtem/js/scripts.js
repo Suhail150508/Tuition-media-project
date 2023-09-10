@@ -2,8 +2,8 @@
 
 
 (function($) {
-    "use strict"; 
-	
+    "use strict";
+
     /* Navbar Scripts */
     // jQuery to collapse the navbar on scroll
     $(window).on('scroll load', function() {
@@ -13,7 +13,7 @@
 			$(".fixed-top").removeClass("top-nav-collapse");
 		}
     });
-    
+
 	// jQuery for page scrolling feature - requires jQuery Easing plugin
 	$(function() {
 		$(document).on('click', 'a.page-scroll', function(event) {
@@ -72,7 +72,7 @@
         }
     });
 
-    
+
     /* Text Slider - Swiper */
 	var textSlider = new Swiper('.text-slider', {
         autoplay: {
@@ -86,7 +86,7 @@
 		}
     });
 
-    
+
     /* Details Lightbox - Magnific Popup */
     $('.popup-with-move-anim').magnificPopup({
 		type: 'inline',
@@ -99,7 +99,7 @@
 		removalDelay: 300,
 		mainClass: 'my-mfp-slide-bottom'
     });
-    
+
 
     /* Video Lightbox - Magnific Popup */
     $('.popup-youtube, .popup-vimeo').magnificPopup({
@@ -112,8 +112,8 @@
         iframe: {
             patterns: {
                 youtube: {
-                    index: 'youtube.com/', 
-                    id: function(url) {        
+                    index: 'youtube.com/',
+                    id: function(url) {
                         var m = url.match(/[\\?\\&]v=([^\\?\\&]+)/);
                         if ( !m || !m[1] ) return null;
                         return m[1];
@@ -121,8 +121,8 @@
                     src: 'https://www.youtube.com/embed/%id%?autoplay=1'
                 },
                 vimeo: {
-                    index: 'vimeo.com/', 
-                    id: function(url) {        
+                    index: 'vimeo.com/',
+                    id: function(url) {
                         var m = url.match(/(https?:\/\/)?(www.)?(player.)?vimeo.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/);
                         if ( !m || !m[5] ) return null;
                         return m[5];
@@ -143,7 +143,7 @@
 			$(this).removeClass('notEmpty');
 		}
 	});
-	
+
 
     /* Back To Top Button */
     // create the back to top button

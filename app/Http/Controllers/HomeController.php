@@ -21,31 +21,10 @@ use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
 {
     public function index(){
-    $teachers=NewTeacher::all();
+    $teachers=NewTeacher::paginate(9);
     $students=NewStudent::all();
-        $categories =  Category::all();
-        $subcategories = SubCategory::all();
-        $brands = Brand::all();
-        $units = Unit::all();
-        $sizes = Size::all();
-        $colors = Color::all();
-        $products = Product::where('status',1)->latest()->limit(12)->get();
 
-        $top_sales = DB::table('products')
-            ->leftJoin('order__details','products.id','=','order__details.product_id')
-            ->selectRaw('products.id, SUM(order__details.product_sales_quantity) as total')
-            ->groupBy('products.id')
-            ->orderBy('total','desc')
-            ->take(8)
-            ->get();
-
-        $topProducts = [];
-        foreach ($top_sales as $s){
-            $p = Product::findOrFail($s->id);
-            $p->totalQty = $s->total;
-            $topProducts[] = $p;
-        }
-         return view('frontend.pages.tutionPages.shapla',compact('categories','subcategories','brands','units','sizes','colors','products','topProducts','teachers','students'));
+         return view('frontend.pages.tutionPages.shapla',compact('teachers','students'));
 //    return view('welcome',compact('categories','subcategories','brands','units','sizes','colors','products','topProducts','teachers'));
 
     }

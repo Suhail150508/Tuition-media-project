@@ -57,50 +57,13 @@
 
 
 </head>
+<body data-spy="scroll" data-target=".fixed-top">
 
-    <style>
-
-        /* search---- */
-        a .dropdown-toggle{
-                    background-color: gray;
-                    box-shadow: 2px 2px 3px black;
-                }
-                a .dropdown-toggle:hover{jo
-                    background-color:deeppink;
-                }
-                .dropdown-menu a:hover {
-                    background-color:mediumorchid;
-                }
-
-        .button{
-            height:55px;
-            width:150px;
-            color:white;
-            font-size:20px;
-            text-align:center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-             background-color:#320cbd;
-          cursor: pointer;
-          transition: all 0.5s;
-          border-radius: 6px;
-
-        }
-        .button:hover,.button:focus{
-          background-color:rgb(62, 247, 87);
-
-          outline:2px solid #d61a06;
-          outline-offset:8px;
-        }
-        </style>
-
-        <body>
-
-
-        {{-- <-- Navigation --> --}}
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="margin-top:-1.4rem">
+    {{-- <-- Navigation --> --}}
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="margin-top: -1.5rem">
         <div class="container">
+
+
 
             <!-- Image Logo -->
             <a class="navbar-brand logo-image" href="index.html"><img src="../newtem/images/logoe.png" alt="alternative" style="height: 70px;margin-top:-1rem"></a>
@@ -112,16 +75,16 @@
             <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="{{ url('/') }}">HOME <span class="sr-only">(current)</span></a>
+                        <a class="nav-link page-scroll" href="{{ url('#header') }}">HOME <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="{{ url('#teachers') }}">TUTORS</a>
+                        <a class="nav-link page-scroll" href="{{ url('#registration') }}">TRIAL</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="{{url('#students')  }}">TUITIONS</a>
+                        <a class="nav-link page-scroll" href="{{url('#revoTabsContent')  }}">FEATURES</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="{{ url('#contact') }}">CONTACT</a>
+                        <a class="nav-link page-scroll" href="{{ url('#details') }}">DETAILS</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">DROP</a>
@@ -133,7 +96,9 @@
                             <a class="dropdown-item page-scroll" href="privacy.html">PRIVACY POLICY</a>
                         </div>
                     </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#purchase">PURCHASE</a>
+                    </li>
                 </ul>
                 <span class="nav-item social-icons">
                     <span class="fa-stack">
@@ -153,79 +118,12 @@
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
+    <header class="bg-dark" style="height: 16vh;margin-top:-1.7rem">
 
-        <header class="bg-dark" style="height: 16vh;margin-top:-1.7rem">
-        </header>
+    </header>
 
-       <div>
-        <div class="row" >
+@yield('content')
 
-            <div   class="col-md-8" style="padding-bottom:-8rem">
-        <div style="background-color:lightgrey;color:blue;height:130vh;">
-            <img src="../assets/images/student-logo.webp " alt="img" style="margin-left:20rem;height:150px;width:150px;margin-top:3rem;border-radius:100px;border:10px solid #f2e">
-         <div  class="" style="margin-top:3rem;paddig-left:2rem;margin-left:6rem;width:500px;height:100vh;margin-bottom:-21rem">
-            <h2 class="" style="border-bottom: 5px solid #cc3277">Tuition Details</h2>
-            <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:#9932cc">Name: </span> {{ $students->name }}</p>
-            <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">Gender: </span> {{ $students->gender }}</p>
-            <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">Class: </span> {{ $students->class }}</p>
-            <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">Medium: </span> {{ $students->medium }}</p>
-            <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">Subject: </span> {{ $students->subject }}</p>
-            <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid"> District: </span> {{ $students->district }}</p>
-
-         </div>
-
-         <h2 class="" style="border-bottom: 5px solid #cc3277;width:500px;margin-left:6rem;margin-top:3rem">Tuition Requirements</h2>
-         <div  class="" style="margin-top:1rem;paddig-left:2rem;margin-left:6rem;width:500px">
-         <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:#9932cc">Available Tuition Schedule: </span> {{ $students->schedule}}</p>
-         <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">Expected Students Level: </span> {{ $students->student_level }}</p>
-         <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">Prefered Subject: </span> {{ $students->prefered_subject }}</p>
-         <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">Expected Salary: </span> {{ $students->salary }}</p>
-         </div>
-
-        </div>
-        <div class="my-1 " style="">
-        <a class=" button " href="{{ url('/all_tuitions') }}" style="margin-left:15rem;width:30%">View All Tuition</a>
-        </div>
-      </div>
-
-
-        <div class="col-md-4">
-            <div >
-
-                <div class=" bg-primary">
-                    <h2 class="text-center " style="padding:3rem 1px">জায়গা পছন্দ করুন</h2>
-                </div>
-            <div style="background-color:lightseagreen;height:110vh;margin-top:-.8rem;">
-                <div class="row" style="display:flex;justify-content:space-around">
-
-
-
-                    <div style="margin-top: 9rem">
-
-                        <div class="dropdown show  dropright">
-                          <a  href="#" role="button" id="dropdownMenuLink"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                >
-                                <h1 class=" dropdown-toggle" style="color: white;padding:5px;margin-top:2rem;border-radius:5px;"> Dhaka</h1>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="margin-left: 23rem;margin-top:-5rem;">
-                                @foreach ($dhaka as $dhakas)
-                                <a class="dropdown-item" style="font-size: 2rem;padding:5px;display:flex; flex-wrap:wrap;border:.5px solid black" href="{{ url('/locations/'.$dhakas->local_address) }}">{{$dhakas->local_address }}</a>
-                                {{-- <a class="dropdown-item" style="font-size: 2rem;padding:5px" href="{{ url('/mirpur') }}">Dhaka Mirpur</a>
-                                <a class="dropdown-item" style="font-size: 2rem;padding:5px" href="#">Dhaka Mohakhali</a> --}}
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-
-                    </div>
-                </div>
-            </div>
-
-            </div>
-        </div>
-        </div>
-        </div>
 
 
 

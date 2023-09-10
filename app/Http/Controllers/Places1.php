@@ -48,9 +48,9 @@ return view('frontend.pages.tutionPages.student_details',compact('students','dha
 
 public function student_all(){
 
-    $students = NewStudent::all();
+    // $students = NewStudent::all();
 
-    return view('frontend.pages.tutionPages.student_all',compact('students'));
+    return view('frontend.pages.tutionPages.student_all',);
 }
 
 
@@ -63,7 +63,7 @@ $rangpur = NewStudent::where('district','Rangpur')->get();
 }
 public function location(Redirect $redirect, $location){
 $location = NewStudent::where('location',$location)->get();
-    return view('frontend.pages.tutionPages.mirpur',compact('location'));
+    return view('frontend.pages.tutionPages.student_all',compact('location'));
 }
 
 }

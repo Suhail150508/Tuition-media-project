@@ -26,9 +26,6 @@
 
 
 
-
-
-
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link href="newtem/css/bootstrap.css" rel="stylesheet">
@@ -42,6 +39,10 @@
 
 {{-- AOS ANIMATION --}}
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+            {{-- toastr --}}
+{{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet"> --}}
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
 
 {{-- New css --}}
@@ -57,49 +58,19 @@
 
     {{-- TemplateMo 557 Grad School --}}
 
+
+
+
+
+
+
 <style>
 
-
-/* * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif
-} */
-
-/* body {
-    margin-top: 30px;
-    background-color:#eee;
-}
-
-.container {
-    min-height: 100vh;
-    padding: 20px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center
-}
-
-p {
-    margin: 0px
-}
-
-.card {
-    width: 280px;
-    height: 520px;
-    box-shadow: #6c757d 0px 3px 8px;
-    background: #fff;
-    transition: all 0.5s ease;
-    cursor: pointer;
-    user-select: none;
-    z-index: 10;
-    overflow: hidden
-}
-
-.card .backgroundEffect {
-    bottom: 0;
-    height: 0px;
-    width: 100%
+.header {
+    padding-top: 7.5rem;
+    padding-bottom: 7.5rem;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(../assets/images/video-bg.jpg) center center no-repeat;
+    background-size: cover;
 }
 
 .card:hover {
@@ -173,65 +144,6 @@ p {
     font-weight: 600
 }
 
-.card .date .month,
-.card .date .year {
-    font-size: 10px
-}
-
-.card .text-muted {
-    font-size: 12px
-}
-
-.card:hover .text-muted {
-    color: #fff !important
-}
-
-.card .content {
-    padding: 0 20px
-}
-
-.card .content .btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px 10px;
-    background-color: #1b9ce3;
-    border-radius: 25px;
-    font-size: 12px;
-    border: none
-}
-
-.card:hover .content .btn {
-    background: #fff;
-    color: #1b9ce3;
-    box-shadow: #0000001a 0px 3px 5px
-}
-
-.card .content .btn .fas {
-    font-size: 10px;
-    padding-left: 5px
-}
-
-.card .content .foot .admin {
-    color: #1b9ce3;
-    font-size: 12px
-}
-
-.card:hover .content .foot .admin {
-    color: #fff
-}
-
-.card .content .foot .icon {
-    font-size: 12px
-} */
-/*
-.servicess{
- width: 100%;
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-align-items: center;
-} */
 
 .card{
     position: relative;
@@ -283,6 +195,39 @@ transform: scale(1.5);
   outline:2px solid #d61a06;
   outline-offset:8px;
 }
+
+
+.name-left{
+    animation: nameleft 4s ease forwards;
+}
+
+@keyframes nameleft {
+    0%{
+  transform:translateX(-100rem);
+  opacity:1;
+    }
+    100%{
+transform:translateX(0);
+opacity:1
+    }
+}
+
+
+.name-right{
+animation: nameright 4s ease forwards;
+}
+
+@keyframes nameright {
+    0%{
+  transform:translateX(100rem);
+  opacity:1;
+    }
+    100%{
+transform:translateX(0);
+opacity:1
+    }
+}
+
 </style>
 
 </head>
@@ -291,8 +236,6 @@ transform: scale(1.5);
     {{-- <-- Navigation --> --}}
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
         <div class="container">
-
-
 
             <!-- Image Logo -->
             <a class="navbar-brand logo-image" href="index.html"><img src="newtem/images/logoe.png" alt="alternative" style="height: 70px;margin-top:-1rem"></a>
@@ -304,16 +247,16 @@ transform: scale(1.5);
             <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="{{ url('#header') }}">HOME <span class="sr-only">(current)</span></a>
+                        <a class="nav-link page-scroll" href="{{ url('/') }}">HOME <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="{{ url('#registration') }}">TRIAL</a>
+                        <a class="nav-link page-scroll" href="{{ url('#teachers') }}">TUTORS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="{{url('#revoTabsContent')  }}">FEATURES</a>
+                        <a class="nav-link page-scroll" href="{{url('#students')  }}">TUITIONS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="{{ url('#details') }}">DETAILS</a>
+                        <a class="nav-link page-scroll" href="{{ url('#contact') }}">CONTACT</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">DROP</a>
@@ -325,9 +268,7 @@ transform: scale(1.5);
                             <a class="dropdown-item page-scroll" href="privacy.html">PRIVACY POLICY</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#purchase">PURCHASE</a>
-                    </li>
+
                 </ul>
                 <span class="nav-item social-icons">
                     <span class="fa-stack">
@@ -351,7 +292,29 @@ transform: scale(1.5);
 
     <!-- Header -->
     <header id="header" class="header" >
+        <div class="d-flex justify-content-center mb-5" style=" gap:2rem">
+            <div class="name-left">
+            <img src="./assets/images/t1.png" alt="" style="height:100px;width:110px">
+            <img src="./assets/images/u1.png" alt="" style="height:100px;width:80px;margin-left:-35px;">
+            <img src="./assets/images/I1.png" alt="" style="height:100px;width:80px;margin-left:-35px;">
+            <img src="./assets/images/t1.png" alt="" style="height:100px;width:80px;margin-left:-35px;">
+            <img src="./assets/images/I1.png" alt="" style="height:100px;width:80px;margin-left:-35px;">
+            <img src="./assets/images/O1.png" alt="" style="height:100px;width:80px;margin-left:-35px;">
+            <img src="./assets/images/N1.png" alt="" style="height:100px;width:80px;margin-left:-35px;">
+        </div>
+            <div class=" name-right justify-content-center mb-5 " style="">
+                <img src="./assets/images/M1.png" alt="" style="height:100px;width:80px">
+                <img src="./assets/images/E1.png" alt="" style="height:100px;width:80px;margin-left:-35px">
+                <img src="./assets/images/D1.png" alt="" style="height:100px;width:80px;margin-left:-35px">
+                <img src="./assets/images/I1.png" alt="" style="height:100px;width:80px;margin-left:-35px">
+                <img src="./assets/images/A1.png" alt="" style="height:100px;width:80px;margin-left:-35px">
+
+            </div>
+
+        </div>
+
         <div class="container">
+
             <div class="row">
                 <div class="col-lg-12">
 
@@ -370,10 +333,8 @@ transform: scale(1.5);
                                         </div> <!-- end of col -->
                                         <div class="col-lg-6 col-xl-5">
                                             <div class="text-container">
-                                                <h1 class="h1-large"> If at the first try you don’t succeed, try, try again!...</h1>
-                                                {{-- <p class="p-large">The first desktop app for web designers. Create beautiful websites with minimum HTML/CSS</p>
-                                                <a class="btn-solid-lg page-scroll" href="#registration">FREE TRIAL</a>
-                                                <a class="btn-outline-lg page-scroll" href="#features">DISCOVER</a> --}}
+                                                <h3 class="h3-large " style="margin-top: 10rem"> If at the first try you don’t succeed, try, try again!...</h3>
+
                                             </div> <!-- end of text-container -->
                                         </div> <!-- end of col -->
                                     </div> <!-- end of row -->
@@ -390,9 +351,9 @@ transform: scale(1.5);
                                         </div> <!-- end of col -->
                                         <div class="col-lg-6 col-xl-5">
                                             <div class="text-container">
-                                                <h1 class="h1-large">If you get angry, you lose.</h1>
+                                                <h3 class="h3-large" style="margin-top: 10rem">If you get angry, you lose.</h3>
 
-                                                <a class="btn-outline-lg page-scroll" href="#features">DISCOVER</a>
+                                                {{-- <a class="btn-outline-lg page-scroll" href="#features">DISCOVER</a> --}}
                                             </div> <!-- end of text-container -->
                                         </div> <!-- end of col -->
                                     </div> <!-- end of row -->
@@ -409,9 +370,9 @@ transform: scale(1.5);
                                         </div> <!-- end of col -->
                                         <div class="col-lg-6 col-xl-5">
                                             <div class="text-container">
-                                                <h1 class="h1-large">The more you read, the more you will learn.</h1>
+                                                <h3 class="h3-large" style="margin-top: 10rem">The more you read, the more you will learn.</h3>
 
-                                                <a class="btn-outline-lg page-scroll" href="#features">DISCOVER</a>
+                                                {{-- <a class="btn-outline-lg page-scroll" href="#features">DISCOVER</a> --}}
                                             </div> <!-- end of text-container -->
                                         </div> <!-- end of col -->
                                     </div> <!-- end of row -->
@@ -426,9 +387,9 @@ transform: scale(1.5);
                                         </div> <!-- end of col -->
                                         <div class="col-lg-6 col-xl-5">
                                             <div class="text-container">
-                                                <h1 class="h1-large">Don't Waste Time As a Student...</h1>
+                                                <h3 class="h3-large" style="margin-top: 10rem">Don't Waste Time As a Student...</h3>
 
-                                                <a class="btn-outline-lg page-scroll" href="#features">DISCOVER</a>
+                                                {{-- <a class="btn-outline-lg page-scroll" href="#features">DISCOVER</a> --}}
                                             </div> <!-- end of text-container -->
                                         </div> <!-- end of col -->
                                     </div> <!-- end of row -->
@@ -445,9 +406,9 @@ transform: scale(1.5);
                                         </div> <!-- end of col -->
                                         <div class="col-lg-6 col-xl-5">
                                             <div class="text-container">
-                                                <h1 class="h1-large">Don't Waste Time As a Student...</h1>
+                                                <h3 class="h3-large" style="margin-top: 10rem">Don't Waste Time As a Student...</h3>
 
-                                                <a class="btn-outline-lg page-scroll" href="#features">DISCOVER</a>
+                                                {{-- <a class="btn-outline-lg page-scroll" href="#features">DISCOVER</a> --}}
                                             </div> <!-- end of text-container -->
                                         </div> <!-- end of col -->
                                     </div> <!-- end of row -->
@@ -470,14 +431,6 @@ transform: scale(1.5);
             <div class="row" style="margin-top:7rem">
                 <div class="col-lg-12">
 
-                    {{-- <div class="partner-container">
-                        <p class="p-small">Featured in</p>
-                        <img class="img-fluid" src="newtem/images/partner-logo-1.png" alt="alternative">
-                        <img class="img-fluid" src="newtem/images/partner-logo-2.png" alt="alternative">
-                        <img class="img-fluid" src="newtem/images/partner-logo-3.png" alt="alternative">
-                        <img class="img-fluid" src="newtem/images/partner-logo-4.png" alt="alternative">
-                        <img class="img-fluid" src="newtem/images/partner-logo-5.png" alt="alternative">
-                    </div> <!-- end of partner-container --> --}}
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
@@ -488,22 +441,7 @@ transform: scale(1.5);
 
 
     <!-- Registration -->
-    <div id="registration" class="form-1 bg-dark-blue">
-
-        {{-- <div class="col-lg-4 col-12" style="margin-bottom: 12rem;margin-top:1rem">
-            <div class="features-post">
-                <div class="features-content">
-                  <div class="content-show">
-                    <h4><i class="fa fa-pencil"></i>All Courses</h4>
-                  </div>
-                  <div class="content-hide">
-                    <p>Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet. Donec maximus elementum ex. Cras convallis ex rhoncus, laoreet libero eu, vehicula libero.</p>
-                    <p class="hidden-sm">Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet.</p>
-                    <div class="scroll-to-section"><a href="#section2">More Info.</a></div>
-                </div>
-                </div>
-              </div>
-         </div> --}}
+    <div  class="form-1 bg-dark-blue">
 
 {{-- new start here --}}
 
@@ -540,41 +478,30 @@ transform: scale(1.5);
           </div>
         </div>
         <div class="col-lg-2 col-12" ></div>
-        {{-- <div class="col-lg-4 col-12">
-          <div class="features-post third-features">
-            <div class="features-content">
-              <div class="content-show">
-                <h2><i class="fa fa-book" style="color:chocolate "></i> অতিথিবৃন্দ </h2>
-              </div>
-              <div class="content-hide" style="font-weight:lighter;color: rgb(69, 39, 186)">
-                <h6>Asslamu-Alaikum , <br> We are delivering many services such as Tution provide , Website design and Development.</h6>
-                <div class="scroll-to-section btn btn-danger"><a href="#section4">Click Here</a></div>
-            </div>
-            </div>
-          </div>
-        </div> --}}
+
       </div>
 {{-- new end here --}}
 
 
 
 
-
-
 {{-- features tutor start --}}
 
-<div class="m-5">
-    <h2 class="text-center">Featured Tutors...</h2>
+<div class="m-5" id="registration">
+    <div style="margin-top: 13rem;margin-bottom:4rem" >
+        <h2 class="col-lg-12 text-center" >Featured Tutors...</h2>
+        <p class=" text-center" style="margin-top:-1rem" >There are many featured tutors here ,They are very good intelizent and experienced.They have included own informations in card details. They are looking for a good student to teach..</p>          <!-- Text Slider -->
+    </div>
 
    <div class="" style="display:flex;flex-wrap:wrap;width:120%;margin:1rem;box-sizing:border-box">
     @foreach ($teachers as $teacher)
-   <div class="card mb-3 " style="width: 400px;margin:.1rem .8rem;height:180px;display:flex;flex-wrap:wrap;overflow:hidden"><a href="{{ url('/teacher_details/'.$teacher->id) }}" style="color: whitesmoke">
+   <div class="card mb-3 " style="width: 400px;margin:.1rem .8rem;height:180px;overflow:hidden"><a href="{{ url('/teacher_details/'.$teacher->id) }}" style="color: whitesmoke">
 
     <div class="row no-gutters">
-      <div class="col-md-4 inner">
+      <div class="col-md-4 col-sm-4 inner">
         <img src="{{ asset('/teacher/'.$teacher->image) }}" alt="img" style="height: 130px;width:130px">
       </div>
-      <div class="col-md-8 " >
+      <div class="col-md-8 col-sm-8 " >
         <div class="card-body" style="height:600px;">
           <h4 class="card-title">{{$teacher->full_name  }}</h4>
           <p class="card-title">{{$teacher->subject  }}</p>
@@ -588,13 +515,15 @@ transform: scale(1.5);
     </div>
     @endforeach
 </div><!-- end of div -->
+<a class="button text-center" style="margin-left:30rem" href="{{ url('/all_teachers') }}">Show All Tutor</a>
 
 {{-- end feature tutor --}}
 
-
-<h2 class="col-lg-12 text-center" style="margin-top: 13rem;margin-bottom:-4rem" >Available Tuition</h2>
-            <!-- Text Slider -->
-            <div class="slider-container"  style="margin-top: 10rem;margin-bottom:-5rem">
+<div style="margin-top: 13rem;margin-bottom:-5rem" id="students">
+    <h2 class="col-lg-12 text-center" style="margin-top: 13rem;margin-bottom:-4rem">Available Tuition</h2>
+    <p class="p-heading text-center" style="margin-top: 5rem">There are many students here , They are looking for a good teacher..</p>          <!-- Text Slider -->
+</div>
+      <div class="slider-container"  style="margin-top: 10rem;margin-bottom:-5rem">
 
                 <div class="swiper-container text-slider">
                     <div class="swiper-wrapper">
@@ -619,8 +548,9 @@ transform: scale(1.5);
                                         {{-- <p class="p-large">The first desktop app for web designers. Create beautiful websites with minimum HTML/CSS</p>
                                         <a class="btn-solid-lg page-scroll" href="#registration">FREE TRIAL</a>
                                         <a class="btn-outline-lg page-scroll" href="#features">DISCOVER</a> --}}
-                                        <h3 style="margin-bottom:-2rem" class="button">View Details</h3>
+                                        <h3 style="margin-bottom:-2rem" class="button" ><a href="{{ url('/student_details/'.$student->id) }}" style="width: 100%">Tuition Details</a></h3>
                                     </a>
+
                                     </div> <!-- end of text-container -->
 
 
@@ -716,24 +646,6 @@ transform: scale(1.5);
                                 <h4>Our Services..</h4>
                                 <p>This website provides various types of website design such as Personal website , Ecommerce website , Community website ,School management website .
                                     Click if you want to design ..</p>
-                                {{-- <ul class="list-unstyled li-space-lg">
-                                    <li class="media">
-                                        <div class="media-bullet">1.</div>
-                                        <div class="media-body"><strong>Speed</strong> is important for our users so we invest a lot of time and resources to make everything work faster</div>
-                                    </li>
-                                    <li class="media">
-                                        <div class="media-bullet">2.</div>
-                                        <div class="media-body"><strong>Reliability</strong> is what we're focused on achieving besides speed because we want our app to work all the time</div>
-                                    </li>
-                                    <li class="media">
-                                        <div class="media-bullet">3.</div>
-                                        <div class="media-body"><strong>Standards</strong> are another factor that we take into consideration when developing our tools</div>
-                                    </li>
-                                    <li class="media">
-                                        <div class="media-bullet">4.</div>
-                                        <div class="media-body"><strong>Performance</strong> is a key factor for our desktop apps</div>
-                                    </li>
-                                </ul> --}}
 
 
                                 <div class="col-lg-12 col-xl-12" style="position: absolute;margin-left:38rem;margin-top:-14rem">
@@ -995,93 +907,45 @@ transform: scale(1.5);
     <!-- end of testimonials -->
 
 
-    <!-- Purchase -->
-    {{-- <div id="purchase" class="basic-3 bg-dark-blue">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="h2-heading">Get Revo And Start Designing</h2>
-                    <p class="p-heading p-large">The first desktop app for web designers and developers which helps them get their ideas from initial sketch to finalized code easier. Revo brings to the table cutting-edge technologies to help you get projects online faster.</p>
-                    <a class="btn-solid-lg" href="#your-link">$89 BUY</a> <a class="btn-outline-lg page-scroll" href="#registration">FREE TRIAL</a>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of basic-3 --> --}}
-    <!-- end of purchase -->
-
-
-    <!-- Resources -->
-    {{-- <div class="basic-4 bg-dark-blue">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="resource-container">
-                        <img class="img-fluid" src="newtem/images/resources-1.jpg" alt="alternative">
-                        <div class="text-container">
-                            <h4>User Showcases</h4>
-                            <p>Check out these awesome customer showcases to convince you to give Revo and try right away</p>
-                        </div> <!-- end of text-container -->
-                    </div> <!-- end of resource-container -->
-                    <div class="resource-container">
-                        <img class="img-fluid" src="newtem/images/resources-2.jpg" alt="alternative">
-                        <div class="text-container">
-                            <h4>Knowledge Center</h4>
-                            <p>We've gathered some great resources to help you learn how to use Revo and overcome issues</p>
-                        </div> <!-- end of text-container -->
-                    </div> <!-- end of resource-container -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of basic-4 --> --}}
-    <!-- end of resources -->
 
 
     <div>
         <div class="text-center my-5">
             <h2>Stay with us</h2>
+            <h5>Sent your opinion about any matter and Stay with us..</h5>
         </div>
     </div>
 
-    <div class="container">
+    <div class="container" id="contact">
         <div class="row">
             <div class="col-lg-6">
-                <div class="text-container">
-                    <h2>Register For The Free Trial</h2>
-                    <p>You are just a few clicks away from using the first desktop app dedicated to web designers and developers. Fill out the form to get the 30-day trial and you will receive the download link</p>
-                    <ul class="list-unstyled li-space-lg">
-                        <li class="media">
-                            <i class="fas fa-square"></i><div class="media-body"><strong>Prototype easier</strong> using intuitive features and design tools</div>
-                        </li>
-                        <li class="media">
-                            <i class="fas fa-square"></i><div class="media-body"><strong>Design layouts</strong> with faster with efficient components</div>
-                        </li>
-                        <li class="media">
-                            <i class="fas fa-square"></i><div class="media-body"><strong>Export to code</strong> and effortlessly upload your projects online</div>
-                        </li>
-                    </ul>
+                <div class="text-container" style="margin-top: -.1rem">
+                    {{-- <h2>Sent your opinion</h2> --}}
+                    <img src="./assets/images/opinion.jpg" alt="img" style="height: 280px;width:450px">
+                    {{-- <p>You are just a few clicks away from using the first desktop app dedicated to web designers and developers. Fill out the form to get the 30-day trial and you will receive the download link</p> --}}
+
                 </div> <!-- end of text-container -->
             </div> <!-- end of col -->
-            <div class="col-lg-6">
+            <div class="col-lg-6 ">
 
                 <!-- Registration Form -->
-                <form id="registrationForm">
+                <form id="registrationForm" action="{{ url('/opinions') }}" method="post" enctype="multipart/form-data">
+                  @csrf
                     <div class="form-group">
-                        <input type="text" class="form-control-input" id="rname" required>
+                        <input type="text" class="form-control-input" name="name" id="rname" required>
                         <label class="label-control" for="rname">Name</label>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control-input" id="roccupation" required>
-                        <label class="label-control" for="roccupation">Occupation</label>
+                        <input type="text" class="form-control-input" name="opinion" id="roccupation" required>
+                        <label class="label-control" for="roccupation">Write your opinion...</label>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control-input" id="remail" required>
-                        <label class="label-control" for="remail">Email</label>
+                        <input type="file" class="form-control-input" name="image" id="remail" required>
+                        <label class="label-control" for="remail">Image</label>
                     </div>
-                    <div class="form-group checkbox">
-                        <input type="checkbox" id="rterms" value="Agreed-to-Terms" required>I agree with the website's <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms & Conditions</a>
-                    </div>
+
                     <div class="form-group">
-                        <button type="submit" class="form-control-submit-button">SIGN UP</button>
+                        <button type="submit" class="form-control-submit-button">Sent SMS</button>
                     </div>
                 </form>
                 <!-- end of registration form -->
@@ -1188,6 +1052,33 @@ transform: scale(1.5);
   <script>
     AOS.init();
   </script>
+
+
+
+
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js" integrity="sha512-fHY2UiQlipUq0dEabSM4s+phmn+bcxSYzXP4vAXItBvBHU7zAM/mkhCZjtBEIJexhOMzZbgFlPLuErlJF2b+0g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    @if (Session::has('message'))
+
+    toastr.options={
+          'clossButton':true,
+          'progressBar':true
+    }
+
+    toastr.success("{{ Session::get('message') }}"
+    // , 'Success! New Student added'
+    );
+
+    // toastr.warnig("{{ Session::get('message') }}"
+    // , 'Success! New Student added'
+    // );
+
+    @endif
+</script>
 
 </body>
 </html>

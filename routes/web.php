@@ -12,6 +12,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Places1;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ShowStudent;
 use App\Http\Controllers\ShowTution;
 use App\Http\Controllers\SizeController;
 use App\Http\Controllers\SubCategoryController;
@@ -131,7 +132,7 @@ Route::post('/students_image',[NewStudent::class,'store_image']);
 Route::get('/places1',[Places1::class,'places1']);
 Route::post('/places1',[Places1::class,'store']);
 Route::get('/student_details/{id}',[Places1::class,'student_details']);
-Route::get('/student_all',[Places1::class,'student_all']);
+Route::get('/all_tuitions',[ShowTution::class,'all_tuition']);
 
 
 Route::get('/places2',[Places1::class,'places2']);
@@ -145,6 +146,11 @@ Route::get('/details/{id}',[ShowTution::class,'details_show']);
 Route::post('/teachers_information',[ShowTution::class,'teachers_information']);
 Route::get('/teacher_info',[ShowTution::class,'teacher_info']);
 Route::get('/teacher_details/{id}',[ShowTution::class,'teacher_details']);
+Route::get('/all_teachers',[ShowTution::class,'all']);
+Route::post('/search_tutor',[ShowTution::class,'search_tutor']);
+
+Route::post('/opinions',[ShowTution::class,'opinion']);
+Route::get('/test/{id}',[ShowTution::class,'test']);
 
 
 

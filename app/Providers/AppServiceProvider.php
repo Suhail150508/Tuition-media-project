@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
-use App\Models\Category;
-use App\Models\NewStudent;
-use App\Models\SubCategory;
+// use App\Models\Category;
+// use App\Models\SubCategory;
+
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
+// use Illuminate\Support\Facades\Schema;
 use view;
 
 class AppServiceProvider extends ServiceProvider
@@ -28,11 +30,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
 
-     view()->share('categories',$categories = Category::all());
-     view()->share('subcategories',$subcategories = SubCategory::all());
-    //  view()->share('newstudents',$newstudents = NewStudent::all());
+    //  view()->share('categories',$categories = Category::all());
+    //  view()->share('subcategories',$subcategories = SubCategory::all());
 
-
-
+    {
+        Paginator::useBootstrap();
+    }
     }
 }

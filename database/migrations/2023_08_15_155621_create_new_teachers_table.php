@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('mobile');
             $table->string('full_name');
             $table->string('gender');
+            $table->string('experience');
             $table->string('image');
             $table->string('institution');
             $table->string('subject');

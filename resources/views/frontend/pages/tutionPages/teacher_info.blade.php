@@ -141,6 +141,10 @@
 
 
             <div class="col-md-9" style="margin-top: 1rem">
+                <textarea class="form-control cleditor" id="inputBirthday" type="text" name="experience" placeholder="Share some of your experiences " required style="border: .1px solid black"></textarea>
+            </div>
+
+            <div class="col-md-9" style="margin-top: 1rem">
                 <textarea class="form-control cleditor" id="inputBirthday" type="text" name="present_address" placeholder="Enter your present address" required style="border: .1px solid black"></textarea>
             </div>
 
