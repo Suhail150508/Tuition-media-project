@@ -1,36 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
 
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    {{-- toastr info here --}}
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js" integrity="sha512-fHY2UiQlipUq0dEabSM4s+phmn+bcxSYzXP4vAXItBvBHU7zAM/mkhCZjtBEIJexhOMzZbgFlPLuErlJF2b+0g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+@extends('frontend.pages.tutionPages.navbar');
+@section('content')
 <style>
 
 .button{
-    height:55px;
-    width:150px;
-    color:white;
-    font-size:20px;
-    text-align:center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-     background-color:#320cbd;
+  height:55px;
+  width:150px;
+  color:white;
+  font-size:20px;
+  text-align:center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#320cbd;
   cursor: pointer;
   transition: all 0.5s;
   border-radius: 6px;
@@ -43,8 +25,7 @@
   outline-offset:8px;
 }
 </style>
-</head>
-<body>
+<div>
 
 <div class=" bg-primary">
     <h2 class="text-center " style="padding:3rem 1px"> ছাত্র / ছাত্রির পরিচয় দিন ইংরেজীতে </h2>
@@ -208,5 +189,5 @@
 
     @endif
 </script>
-</body>
-</html>
+</div>
+@endsection

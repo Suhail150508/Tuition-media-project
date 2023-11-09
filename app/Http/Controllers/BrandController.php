@@ -55,7 +55,7 @@ class BrandController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function status(Request $request, $id)
-    {   $brands=  Brand::find($id);
+    {   $brands=Brand::find($id);
         if($brands->status==1){
             $brands->update(['status'=>0]);
 

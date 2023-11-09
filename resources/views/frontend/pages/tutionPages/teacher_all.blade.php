@@ -61,8 +61,6 @@
   cursor: pointer;
   transition: all 0.5s;
   border-radius: 6px;
-
-
 }
 .button:hover,.button:focus{
   background-color:rgb(247, 62, 244);

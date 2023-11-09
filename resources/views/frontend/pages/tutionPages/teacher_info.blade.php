@@ -1,24 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    {{-- toastr info here --}}
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js" integrity="sha512-fHY2UiQlipUq0dEabSM4s+phmn+bcxSYzXP4vAXItBvBHU7zAM/mkhCZjtBEIJexhOMzZbgFlPLuErlJF2b+0g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+@extends('frontend.pages.tutionPages.navbar');
+@section('content')
 <style>
 
 .button{
@@ -43,8 +24,7 @@
   outline-offset:8px;
 }
 </style>
-</head>
-<body>
+<div>
 
 <div class=" bg-primary">
     <h2 class="text-center " style="padding:3rem 1px"> শিক্ষক / শিক্ষিকা পরিচয় দিন ইংরেজীতে </h2>
@@ -53,7 +33,7 @@
     <div  class="col-md-3"><img src="./img/place_left.png" style="height: 400px;width:240px" alt=""></div>
 
 
- <div  class="col-md-9 " style="font-size:2.5rem ;border-radius:15px;background-color:ghostwhite;color:black">
+ <div  class="col-md-8 " style="font-size:2.5rem ;border-radius:15px;background-color:ghostwhite;color:black">
     <h2 class="col-md-9" style="margin-top: 2rem">LOGIN INFORMATION</h2>
         <form action="{{ url('/teachers_information') }}" method="POST" style="padding:3rem" enctype="multipart/form-data">
            @csrf
@@ -200,5 +180,5 @@
 
     @endif
 </script>
-</body>
-</html>
+</div>
+@endsection

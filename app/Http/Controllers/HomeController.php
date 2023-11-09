@@ -16,8 +16,6 @@ use Illuminate\Support\Facades\DB;
 
 // use Illuminate\Support\Facades\Redirect;
 
-
-
 class HomeController extends Controller
 {
     public function index(){
@@ -28,14 +26,14 @@ class HomeController extends Controller
 //    return view('welcome',compact('categories','subcategories','brands','units','sizes','colors','products','topProducts','teachers'));
 
     }
-public function search(Request $request){
-$products = Product::orderBy('id','desc')->where('name','LIKE','%'.$request->product.'%');
-if($request->category !='All')$products->where('cat_id',$request->category);
-$products = $products->get();
-$categories =  Category::all();
-$subcategories = SubCategory::all();
-$brands = Brand::all();
-return view('frontend.pages.product_by_subCat',compact('categories','subcategories','brands','products'));
+public function search(Request $request) {
+    $products = Product::orderBy('id','desc')->where('name','LIKE','%'.$request->product.'%');
+    if($request->category !='All')$products->where('cat_id',$request->category);
+    $ategories =  Category::all();
+    $sproducts = $products->get();
+    $cubcategories = SubCategory::all();
+    $brands = Brand::all();
+    return view('frontend.pages.product_by_subCat',compact('categories','subcategories','brands','products'));
 
 
 }
@@ -56,27 +54,27 @@ return view('frontend.pages.product_by_subCat',compact('categories','subcategori
     }
 
 
-public function product_by_cat($id){
-    $categories =  Category::all();
-    $subcategories = SubCategory::all();
-    $brands = Brand::all();
-    $products = Product::where('status',1)->where('cat_id',$id)->limit(8)->get();
-    return view('frontend.pages.product_by_cat',compact('categories','subcategories','brands','products'));
-}
-public function product_by_subCat($id){
-    $categories =  Category::all();
-    $subcategories = SubCategory::all();
-    $brands = Brand::all();
-    $products = Product::where('status',1)->where('subcat_id',$id)->limit(8)->get();
-    return view('frontend.pages.product_by_subCat',compact('categories','subcategories','brands','products'));
-}
-public function product_by_brand($id){
-    $categories =  Category::all();
-    $subcategories = SubCategory::all();
-    $brands = Brand::all();
-    $products = Product::where('status',1)->where('br_id',$id)->limit(8)->get();
-    return view('frontend.pages.product_by_brand',compact('categories','subcategories','brands','products'));
-}
+    public function product_by_cat($id){
+        $categories =  Category::all();
+        $subcategories = SubCategory::all();
+        $brands = Brand::all();
+        $products = Product::where('status',1)->where('cat_id',$id)->limit(8)->get();
+        return view('frontend.pages.product_by_cat',compact('categories','subcategories','brands','products'));
+    }
+    public function product_by_subCat($id){
+        $categories =  Category::all();
+        $subcategories = SubCategory::all();
+        $brands = Brand::all();
+        $products = Product::where('status',1)->where('subcat_id',$id)->limit(8)->get();
+        return view('frontend.pages.product_by_subCat',compact('categories','subcategories','brands','products'));
+    }
+    public function product_by_brand($id){
+        $categories =  Category::all();
+        $subcategories = SubCategory::all();
+        $brands = Brand::all();
+        $products = Product::where('status',1)->where('br_id',$id)->limit(8)->get();
+        return view('frontend.pages.product_by_brand',compact('categories','subcategories','brands','products'));
+    }
 
 
 }

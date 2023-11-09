@@ -5,69 +5,35 @@
 
 
 
-<style>
-.find{
-background-color:fuchsia;
-}
-.find:hover{
-background-color:cyan;
-}
-.sel:hover{
-    background-color:lightsalmon;
-}
-</style>
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- shop -->
+                    @foreach ($categories as $category)
 
+					<div class="col-md-3 col-xs-3" >
+						<div class="shop">
+							<div class="shop-img">
+								<img src="{{ asset('/storage/'.$category->image) }}" alt="" style="width:25rem;height:15rem">
+							</div>
+							<div class="shop-body">
+								<h3>{{ $category->name }}<br>Collection</h3>
+								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+					</div>
+                    @endforeach
+					<!-- /shop -->
 
-<div  style="
-
- height:100px;width:auto; margin-top:-2.5rem;
-">
-	<img  style="
-	height:70px;width:100vw;opacity:.69" src="./img/capturea.jpg" alt="">
- <div style="position: absolute;margin-top:-8rem">
-    <marquee className=" py-2"><span className='text-warning'>......</span>
-   <h2 style="color:darkorange;margin-top:1rem">আল্লাহ ছাড়া কোন মালিক নেই | .......... আল্লাহ সব কিছুর উপর সর্বশক্তিমান।</h2> </marquee>
-</div>
- </div>
-
-
-    <div class="" style="background:lightgray; padding:4rem 1px;margin-top:-7rem">
-       <div class="col-md-3" style="display:flex;justify-content:space-evenly;width:100%;height:140px;background:rgba(10, 73, 174, 10)">
-
-        <div><img src="./img/place_left.png" style="height: 200px;width:200px;margin-top:-7rem" alt=""></div>
-        <div class="find col-md-3  m-3 " style="font-size: 2.5rem; padding:2rem;width:200px;height:100px;border-radius:20px;margin:0 auto;cursor:pointer;box-shadow:4px 3px 2px gray"  ><a href="{{ url('/places1') }}"> শিক্ষক পেতে ক্লিক করুন</a></div>
-        <div class="sel col-md-3 bg-primary m-3 " style="font-size: 2.5rem;padding:2rem;width:200px;height:100px;border-radius:20px;margin:0 auto; cursor:pointer;box-shadow:4px 3px 2px gray"  ><a href="{{ url('/places2') }}">স্টুডেন্ট পেতে ক্লিক করুন </a> </div>
-        <div><img src="./img/place_right.png" style="height: 200px;width:200px;margin-top:-7rem" alt=""></div>
-    </div>
-    </div>
-
-<!-- CSS Files -->
-{{-- <link rel="stylesheet" href="https://unpkg.com/bs-brain/bsb.css" /> --}}
-
-@foreach ($teachers as $teacher)
-
-
-   <div class="card mb-3 " style="width: 400px;margin:.1rem .8rem;height:180px">
-    <div class="row no-gutters">
-      <div class="col-md-4 inner">
-        <img src="{{asset('/storage/'.$teacher->image ) }}" style="width: 60px; height:60px" alt="img">
-      </div>
-      <div class="col-md-8 ">
-        <div class="card-body">
-          <h4 class="card-title">{{$teacher->full_name  }}</h4>
-          <h5 class="card-title">{{$teacher->subject  }}</h5>
-          <h5 class="card-title">{{$teacher->gender  }}</h5>
-          <p class="card-title">{{$teacher->image  }}</p>
-          {{-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> --}}
-        </div>
-      </div>
-    </div>
-    </div>
-
-    @endforeach
-
-
-
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
 
 
 		<!-- SECTION -->
@@ -101,16 +67,69 @@ background-color:cyan;
 								<div id="tab1" class="tab-pane active">
 									<div class="products-slick" data-nav="#slick-nav-1">
 										<!-- product -->
-                                        {{-- @foreach ($products as $product ) --}}
+                                        @foreach ($products as $product )
+@php
+       $product['image'] = explode("|",$product->image);
+
+       $images = $product->image[0];
+@endphp
+
+					               	<div class="product" style="flex:wrap">
+											<div class="product-img"><a href="{{ url('/view-details'.$product->id) }}">
+												<img src="{{ asset('/image/'.$images) }}" alt="" style="width:12rem;height:15rem">
+												<div class="product-label">
+													<span class="sale">-30%</span>
+													<span class="new">NEW</span>
+												</div>
+											</div></a>
+											<div class="product-body">
+										       {{-- <p class="product-category"><a href="{{ url('/view-details'.$product->id) }}">{{ $product->category->name }}</a></p>
+												<h3 class="product-name"><a href="{{ url('/view-details'.$product->id) }}">{{ $product->name }}</a></h3> --}}
+												<h4 class="product-price"><a href="{{ url('/view-details'.$product->id) }}">&#2547: {{  $product->price }} <del class="product-old-price">$990.00</del> </a> </h4>
+												<div class="product-rating">
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+												</div>
+												<div class=" product-btns" style="display: flex;justify-content:center">
 
 
 
+                                                        <div class="wishlist">
+                                                            <form action="{{ url('/wishlist') }}" method="post">
+                                                                @csrf
+                                                            <input type="hidden" name="id" value="{{ $product->id }}">
+                                                            <input type="hidden" name="price" value="{{ $product->price }}">
+								 					        <button class="add-to-wishlist"><i class="fa fa-heart-o"></i></button>
+                                                            </form>
+                                                        </div>
 
 
+
+                                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                                    <a href="{{ url('/view-details'.$product->id) }}"><button class="quick-view"><i class="fa fa-eye"></i></button></a>
+
+                                                </div>
+                                            </div>
+
+
+											<div class="add-to-cart" >
+                                                <form action="{{ url('/add-to-cart') }}" method="post">
+                                                    @csrf
+                                                <input type="hidden" name="id" value="{{ $product->id }}">
+                                                <input type="hidden" name="price" value="{{ $product->price }}">
+												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                                 </form>
+                                            </div>
+
+
+										</div>
+                                        @endforeach
 										<!-- /product -->
 
-									</a>
-                                    </div>
+									</div>
 									<div id="slick-nav-1" class="products-slick-nav"></div>
 								</div>
 								<!-- /tab -->
@@ -211,7 +230,7 @@ background-color:cyan;
 
                                        <div class="product" >
                                             <div class="product-img"><a href="{{ url('/view-details'.$topProduct->id) }}"  style="width: 4%; height:10%">
-                                                <img src="{{ asset('/image/'.$images) }}" alt="" style="width: 26rem;height:24rem">
+                                                <img src="{{ asset('/image/'.$images) }}" alt="" style="width: 12rem;height:15rem">
                                                 <div class="product-label">
                                                     <span class="sale">-30%</span>
                                                     <span class="new">NEW</span>
@@ -566,5 +585,6 @@ background-color:cyan;
 			<!-- /container -->
 		</div>
 		<!-- /SECTION -->
+
 
         @endsection

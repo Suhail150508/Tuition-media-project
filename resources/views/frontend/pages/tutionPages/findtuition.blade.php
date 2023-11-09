@@ -105,35 +105,39 @@ transform: scale(1.5);
     <div class="col-md-12" style="background-color:rgb(139, 127, 173);width:100vw;display:flex;flex-wrap:wrap">
         <div class="" style="display:flex;flex-wrap:wrap;width:100%;margin:1rem;box-sizing:border-box">
 
-        @if ($search_tutors->isNotEmpty())
-            @foreach ($search_tutors as $tutors )
-                <div class="card mb-3 " style="width: 320px;margin:.1rem .7rem;height:180px;display:flex;flex-wrap:wrap;overflow:hidden">
-                    <a href="{{ url('/teacher_details/'.$tutors->id) }}" style="color: whitesmoke">
-                        <div class="row no-gutters" style="background-color:teal;color:white;display:flex;box-shadow:4px 4px 3px black;margin:.2rem;text-decoration:none">
-                            <div class="col-md-4 inner">
-                                <img src="{{ asset('/teacher/'.$tutors->image) }}" alt="img" style="height: 130px;width:130px">
-                            </div>
-                            <div class="col-md-8 " style="padding:10px;">
-                                <div class="card-body" style="height:600px;">
-                                    <h4 class="card-title"style="margin-top:-.2rem" >{{$tutors->full_name  }}</h4>
-                                    <p class="card-title" style="margin-top:-.5rem">{{$tutors->subject  }}</p>
-                                    <p style="margin-top:-.5rem;">{{ $tutors->experience }} .</p>
-                                </div>
+            <div class="" style="display:flex;flex-wrap:wrap;width:100%;margin:1rem;box-sizing:border-box">
+                @if ($tuitions->isNotEmpty())
+                    @foreach ($tuitions as $tuition)
+
+                <div class="card mb-3 " style="width: 400px;margin:.1rem .8rem;height:180px;display:flex;flex-wrap:wrap;overflow:hidden"><a href="{{ url('/tuition_details/'.$tuition->id) }}" style="color: whitesmoke">
+                 <div class="row no-gutters" style="background-color:teal;color:white;display:flex;box-shadow:4px 4px 3px black;margin:.2rem;text-decoration:none">
+                    <div class="col-md-2 inner"></div>
+                        <div class="col-md-10 " style="padding:10px">
+                            <div class="card-body" style="height:600px;overflow:hidden">
+                                <p class="" style="font-size: 1.2rem;color:black"><span style="font-size: 1.3rem;font-weight:200;color:white">tuition Name:- </span>  {{ $tuition->name }}</p>
+                                <p class="" style="font-size: 1.2rem;color:black"><span style="font-size: 1.3rem;font-weight:200;color:white">Class: </span> {{ $tuition->class }}</p>
+                                <p class="" style="font-size: 1.2rem;color:black"><span style="font-size: 1.3rem;font-weight:200;color:white">Medium: </span> {{ $tuition->medium }}</p>
+                                <p class="" style="font-size: 1.2rem;color:black"><span style="font-size: 1.3rem;font-weight:200;color:white">Schedule: </span> {{ $tuition->schedule }}</p>
+                                <p class="" style="font-size: 1.2rem;color:black"><span style="font-size: 1.3rem;font-weight:200;color:white">Days: </span> {{ $tuition->days }}</p>
+                                <p class="" style="font-size: 1.2rem;color:black"><span style="font-size: 1.3rem;font-weight:200;color:white">Salary: </span> {{ $tuition->salary }}</p>
+
                             </div>
                         </div>
-                    </a>
+
+                    </div>
+                        </a>
                 </div>
             @endforeach
-
-        @else
-            <h1>no data found</h1>
-        @endif
-
+                @else
+                <h2 >Not data found</h2>
+                @endif
 
 
-</div><!-- end of div -->
+
+    </div><!-- end of div -->
 
     </div>
     </div>
+</div>
 
 @endsection

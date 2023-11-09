@@ -49,10 +49,10 @@
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Additional CSS Files -->
-        <link rel="stylesheet" href="../assets/css/fontawesome.css">
+        {{-- <link rel="stylesheet" href="../assets/css/fontawesome.css">
         <link rel="stylesheet" href="../assets/css/templatemo-grad-school.css">
         <link rel="stylesheet" href="../assets/css/owl.css">
-        <link rel="stylesheet" href="../assets/css/lightbox.css">
+        <link rel="stylesheet" href="../assets/css/lightbox.css"> --}}
 
 
 
@@ -159,6 +159,7 @@
             </div>
          <div  class="" style="margin-top:3rem;paddig-left:2rem;margin-left:4rem;width:500px">
             <h2 class="" style="border-bottom: 5px solid #cc3277">Tutor Details</h2>
+            <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:#9932cc">ID No: </span> {{ $teachers->id + 100 }}</p>
             <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:#9932cc">Name: </span> {{ $teachers->full_name }}</p>
             <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">Gender: </span> {{ $teachers->gender }}</p>
             <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">Institution: </span> {{ $teachers->institution }}</p>
@@ -178,21 +179,32 @@
 
 
 
-        <div class="col-md-5" style="background-color: darkcyan;height:150vh">
+                <div class="col-md-5" style="background-color: darkcyan;height:150vh">
 
+                    <div class="text-white p-5 "  style="background-color:purple;margin-left:-.8rem">
+                        <h3 class="mb-5">Apply for any tutor</h3>
+                        <form action="{{ url('/application_tutor') }}" method="POST"  enctype="multipart/form-data">
+                                @csrf
 
-            {{-- <div class="col-md-5 bg-secondary"> --}}
-                <div class="text-white p-5 "  style="background-color:purple;margin-left:-.8rem">
-                    <h2 class="mb-5">Find Tutor accordting to Gender and District</h2>
+                            <input type="text" class="form-control" name="tutors_id" placeholder="Enter Tutor id">
+                            <input type="text" class="form-control my-3 py-3" name="name" placeholder="Enter Tutor name">
+                            <textarea class="form-control cleditor py-3" name="information" placeholder="Inter your informations with mobile no:"></textarea>
+
+                            <button type="submit" class="button btn-primary" style="width:100%;margin-top:1rem">Submit</button>
+                        </form>
+                    </div>
+
+                    {{-- <div class="text-white p-5 "  style="background-color:purple;margin-left:-.8rem">
+                        <h2 class="mb-5">Find Tutor accordting to Gender and District</h2>
                         <form action="{{ url('/search_tutor') }}" method="POST"  enctype="multipart/form-data">
-                @csrf
+                            @csrf
 
 
-                <select class="form-select my-2 py-2 text-center" name="gender" aria-label="Default select example" style="width:100%">
-                    <option selected>Gender</option>
-                    <option>male</option>
-                    <option>female</option>
-                  </select>
+                            <select class="form-select my-2 py-2 text-center" name="gender" aria-label="Default select example" style="width:100%">
+                                <option selected>Gender</option>
+                                <option>male</option>
+                                <option>female</option>
+                            </select>
 
                             <select class="form-select my-2 py-2 text-center" name="district" aria-label="Default select example" style="width:100%">
                                 <option selected>District</option>
@@ -214,9 +226,8 @@
                             <button type="submit" class="button btn-primary" style="width:100%;margin-top:1rem">Submit</button>
                           </form>
                         </div>
-                     </div>
-
-               </div>
+                    </div> --}}
+                </div>
            </div>
 
 
@@ -303,7 +314,7 @@
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<script src="assets/js/isotope.min.js"></script>
+{{-- <script src="assets/js/isotope.min.js"></script> --}}
 <script src="assets/js/owl-carousel.js"></script>
 <script src="assets/js/lightbox.js"></script>
 <script src="assets/js/tabs.js"></script>
@@ -313,15 +324,14 @@
 <script>
 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js" integrity="sha512-fHY2UiQlipUq0dEabSM4s+phmn+bcxSYzXP4vAXItBvBHU7zAM/mkhCZjtBEIJexhOMzZbgFlPLuErlJF2b+0g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-// AOS ANIMATION
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+//
+{{-- //   <script>
+//     AOS.init();
+//   </script> --}}
 
 
 
-//   -- toastr info here --
+{{-- //   -- toastr info here -- --}}
 
 //  {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>

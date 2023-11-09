@@ -406,6 +406,88 @@ input[type='checkbox'] {
 }
 /* end of fade-move animation for details lightbox - magnific popup */
 
+/*
+Education Style
+======================================================*/
+.single-education-card {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    /* padding: 50px 30px; */
+    /* margin-bottom: 30px; */
+    z-index: 1;
+  }
+
+  /* .single-education-card.bg-1 {
+    background-image: url(../images/academics/academic-4.jpg);
+  }
+
+  .single-education-card.bg-2 {
+    background-image: url(../images/academics/academic-5.jpg);
+  }
+
+  .single-education-card.bg-3 {
+    background-image: url(../images/academics/academic-6.jpg);
+  }
+
+  .single-education-card.bg-4 {
+    background-image: url(../images/academics/academic-7.jpg);
+  } */
+
+  .single-education-card .edication-content {
+    text-align: center;
+    position: relative;
+  }
+
+  .single-education-card .edication-content .icon i {
+    font-size: 50px;
+    margin-bottom: 10px;
+    color: #ffffff;
+  }
+
+  .single-education-card .edication-content h3 {
+    font-size: 22px;
+    color: #ffffff;
+    margin-bottom: 15px;
+  }
+
+  .single-education-card .edication-content .read-more-btn:hover {
+    color: #111d5e;
+  }
+
+  .single-education-card::before {
+    position: absolute;
+    content: "";
+    background: rgba(17, 29, 94, 0.6);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .single-education-card::after {
+    position: absolute;
+    content: "";
+    background: #e32845;
+    display: inline-block;
+    height: 100%;
+    width: 0;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    -webkit-transition: all ease 0.5s;
+    transition: all ease 0.5s;
+  }
+
+  .single-education-card:hover::after {
+    width: 100%;
+    border-radius: 0;
+    left: 0;
+    right: auto;
+  }
+
 
 /**********************/
 /*     Navigation     */

@@ -66,7 +66,7 @@
 
 
             <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="index.html"><img src="newtem/images/logoe.png" alt="alternative" style="height: 70px;margin-top:-1rem"></a>
+            <a class="navbar-brand logo-image" href="/"><img src="newtem/images/logo.jpg" alt="alternative" style="height: 70px;margin-top:-1rem"></a>
 
             <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
                 <span class="navbar-toggler-icon"></span>
@@ -89,11 +89,9 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">DROP</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown01">
-                            <a class="dropdown-item page-scroll" href="article.html">ARTICLE DETAILS</a>
+                            <a class="dropdown-item page-scroll" href="#">Your profile</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item page-scroll" href="terms.html">TERMS CONDITIONS</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item page-scroll" href="privacy.html">PRIVACY POLICY</a>
+                            <a class="dropdown-item page-scroll" href="#">Log out</a>
                         </div>
                     </li>
 
@@ -206,7 +204,7 @@
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<script src="assets/js/isotope.min.js"></script>
+{{-- <script src="assets/js/isotope.min.js"></script> --}}
 <script src="assets/js/owl-carousel.js"></script>
 <script src="assets/js/lightbox.js"></script>
 <script src="assets/js/tabs.js"></script>

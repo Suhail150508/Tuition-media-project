@@ -37,14 +37,14 @@
 	<!-- Favicon  -->
     <link rel="icon" href="images/favicon.png">
 
-{{-- AOS ANIMATION --}}
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        {{-- AOS ANIMATION --}}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
            {{-- toastr --}}
            {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet"> --}}
-           <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
-{{-- New css --}}
+    {{-- New css --}}
         <!-- Bootstrap core CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -162,9 +162,10 @@
 
             <div   class="col-md-8" style="padding-bottom:-8rem">
         <div style="background-color:lightgrey;color:blue;height:130vh;">
-            <img src="../assets/images/student-logo.webp " alt="img" style="margin-left:20rem;height:150px;width:150px;margin-top:3rem;border-radius:100px;border:10px solid #f2e">
+            <img src="../assets/images/student-logo.webp " alt="img" style="margin-left:6rem;height:150px;width:150px;margin-top:3rem;border-radius:100px;border:10px solid #f2e">
          <div  class="" style="margin-top:3rem;paddig-left:2rem;margin-left:6rem;width:500px;height:100vh;margin-bottom:-21rem">
             <h2 class="" style="border-bottom: 5px solid #cc3277">Tuition Details</h2>
+            <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:#9932cc">ID No: </span> {{ $students->id + 100 }}</p>
             <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:#9932cc">Name: </span> {{ $students->name }}</p>
             <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">Gender: </span> {{ $students->gender }}</p>
             <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">Class: </span> {{ $students->class }}</p>
@@ -183,49 +184,62 @@
          </div>
 
         </div>
-        <div class="my-1 " style="">
-        <a class=" button " href="{{ url('/all_tuitions') }}" style="margin-left:15rem;width:30%">View All Tuition</a>
+        <div class="my-2 " style="">
+        <a class=" button " href="{{ url('/all_students') }}" style="font-size:1.6rem;padding:1rem; margin-left:17rem;width:32%">View All Tuitions</a>
         </div>
       </div>
 
 
-        <div class="col-md-4">
-            <div >
 
-                <div class=" bg-primary">
-                    <h2 class="text-center " style="padding:3rem 1px">জায়গা পছন্দ করুন</h2>
+
+            <div class="col-md-4" style="background-color: darkcyan;height:150vh">
+
+                <div class="text-white p-5 "  style="background-color:purple;margin-left:-.8rem">
+                    <h3 class="mb-5">Apply for any tuition</h3>
+                    <form action="{{ url('/application_tuition') }}" method="POST"  enctype="multipart/form-data">
+                            @csrf
+
+                        <input type="text" class="form-control" name="tuitions_id" placeholder="Enter Tuition id">
+                        <input type="text" class="form-control my-3 py-3" name="name" placeholder="Enter Tuition name">
+                        <textarea class="form-control cleditor py-3" name="cv" placeholder="Enter your CV with mobile no:"></textarea>
+
+                        <button type="submit" class="button btn-primary" style="width:100%;margin-top:1rem">Submit</button>
+                    </form>
                 </div>
-            <div style="background-color:lightseagreen;height:110vh;margin-top:-.8rem;">
-                <div class="row" style="display:flex;justify-content:space-around">
 
+                {{-- <div class="text-white p-5 "  style="background-color:purple;margin-left:-.8rem;margin-top:5rem">
+                    <h3 class="mb-5">Search for Gender and District</h3>
+                    <form action="{{ url('/find_tuition') }}" method="POST"  enctype="multipart/form-data">
+                            @csrf
+                        <select class="form-select my-2 py-2 text-center" name="gender" aria-label="Default select example" style="width:100%">
+                            <option selected>Gender</option>
+                            <option>male</option>
+                            <option>female</option>
+                        </select>
 
+                        <select class="form-select my-2 py-2 text-center" name="district" aria-label="Default select example" style="width:100%">
+                            <option selected>District</option>
+                            <option >Dhaka</option>
+                            <option>Rajshahi</option>
+                            <option>Dinajpur</option>
+                            <option>Rangpur</option>
+                            <option>Pabna</option>
+                            <option>Kushtia</option>
+                            <option>Khulna</option>
+                            <option>Mymensingh</option>
+                            <option>Jessore</option>
+                            <option>Chittagong</option>
+                            <option>Others</option>
+                          </select>
 
-                    <div style="margin-top: 9rem">
-
-                        <div class="dropdown show  dropright">
-                          <a  href="#" role="button" id="dropdownMenuLink"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                >
-                                <h1 class=" dropdown-toggle" style="color: white;padding:5px;margin-top:2rem;border-radius:5px;"> Dhaka</h1>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="margin-left: 23rem;margin-top:-5rem;">
-                                @foreach ($dhaka as $dhakas)
-                                <a class="dropdown-item" style="font-size: 2rem;padding:5px;display:flex; flex-wrap:wrap;border:.5px solid black" href="{{ url('/locations/'.$dhakas->local_address) }}">{{$dhakas->local_address }}</a>
-                                {{-- <a class="dropdown-item" style="font-size: 2rem;padding:5px" href="{{ url('/mirpur') }}">Dhaka Mirpur</a>
-                                <a class="dropdown-item" style="font-size: 2rem;padding:5px" href="#">Dhaka Mohakhali</a> --}}
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-
-                    </div>
-                </div>
+                        <button type="submit" class="button btn-primary" style="width:100%;margin-top:1rem">Submit</button>
+                    </form>
+                </div> --}}
             </div>
 
-            </div>
         </div>
-        </div>
-        </div>
+    </div>
+</div>
 
 
 

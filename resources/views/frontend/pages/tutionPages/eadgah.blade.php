@@ -73,7 +73,35 @@ outline-offset:8px;
 
 <div class="col-md-8" style="background-color:lightgray;margin-top:-1.6rem">
     <div class="" style="display:flex;flex-wrap:wrap;width:100%;margin:1rem;box-sizing:border-box">
-        @foreach ($teachers as $teacher)
+        @if ($tutors->isNotEmpty())
+            @foreach ($tutors as $tutor)
+                <div class="card mb-3 single-education-card" style="width: 340px;margin-left:.7rem;height:180px;overflow:hidden"><a
+                        href="{{ url('/teacher_details/' . $tutor->id) }}" style="color: whitesmoke">
+
+                    <div class="d-flex ">
+                        <div class="inner">
+                            <img src="{{ asset('/teacher/' . $tutor->image) }}" alt="img"
+                                style="height: 140px;width:190px">
+                        </div>
+                        <div class=" ">
+                            <div class="card-body" style="height:600px;">
+                                <p class="" style="color:lightgray;margin-top:-.8rem"> <span style="font-size:1.2rem;color:#ffff">Name: </span> {{ $tutor->full_name }}</p>
+                                <p class="" style="color:lightgray;margin-top:-.8rem"> <span style="font-size:1.2rem;color:#ffff"> Ins: </span> {{ $tutor->institution }}</p>
+                                <p class="" style="color:lightgray;margin-top:-.8rem"> <span style="font-size:1.2rem;color:#ffff">Sub: </span> {{ $tutor->subject }}</p>
+                                <p class="" style="color:lightgray;margin-top:-.8rem"> <span style="font-size:1.2rem;color:#ffff"> Dis: </span> {{ $tutor->district }}</p>
+                                {{-- <p>This is a respected tutor, so you have to respect him/har ,because he is a
+                                    teacher ,otherwise you can not shine your life .</p> --}}
+                            </div>
+
+                        </div>
+
+                    </div>
+                    </a>
+                </div>
+            @endforeach
+
+
+        {{-- @foreach ($tutors as $teacher)
         <div class="card mb-3 " style="width: 400px;margin:.1rem .8rem;height:180px;display:flex;flex-wrap:wrap;overflow:hidden"><a href="{{ url('/teacher_details/'.$teacher->id) }}" style="color: whitesmoke">
 
         <div class="row no-gutters" style="background-color:teal;color:white;display:flex;box-shadow:4px 4px 3px black;margin:.2rem;text-decoration:none">
@@ -91,9 +119,13 @@ outline-offset:8px;
         </div>
     </a>
 </div>
-@endforeach
+@endforeach --}}
+
+@else
+<h2>Not data found</h2>
+@endif
 <div class="mt-4" style="margin-left: 35rem">
-    {{ $teachers->withQueryString()->links() }}
+    {{ $tutors->withQueryString()->links() }}
 </div>
 </div><!-- end of div -->
 </div>
@@ -101,36 +133,17 @@ outline-offset:8px;
 
 <div class="col-md-4 bg-secondary" style="margin-top:-1.6rem">
 <div class="p-5 text-white "  style="background-color:purple;">
-    <h3 class="mb-5">Find Tutor accordting to Gender and District</h3>
-        <form action="{{ url('/search_tutor') }}" method="POST"  enctype="multipart/form-data">
-@csrf
 
+          <div class="col-md-12 py-5">
+            <h3>Search Tutors for any feature</h3>
 
-<select class="form-select my-2 py-2" name="gender" aria-label="Default select example" style="width: 100%;">
-    <option selected>Gender</option>
-    <option>male</option>
-    <option>female</option>
-  </select>
+            <form action="/search-tutors">
+                @csrf
+                <input class="py-2 form-control" style="width:100%" type="text" name="search" placeholder="Search.. Ex.  Ins: Sub: dist:" value="{{ isset($search) ? $search :'' }}"/>
+                <button type="submit" class="btn btn-success" style="width: 100%;font-size:1.4rem; margin-top:1rem">Search </button>
+            </form>
+        </div>
 
-            <select class="form-select py-2 mb-2" name="district" aria-label="Default select example" style="width: 100%">
-                <option selected>District</option>
-                <option >Dhaka</option>
-                <option>Rajshahi</option>
-                <option>Dinajpur</option>
-                <option>Rangpur</option>
-                <option>Pabna</option>
-                <option>Kushtia</option>
-                <option>Khulna</option>
-                <option>Mymensingh</option>
-                <option>Jessore</option>
-                <option>Chittagong</option>
-                <option>Others</option>
-              </select>
-
-
-
-            <button type="submit" class="button btn-primary" style="width: 100%">Submit</button>
-          </form>
         </div>
      </div>
      </div>

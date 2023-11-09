@@ -132,7 +132,12 @@ Route::post('/students_image',[NewStudent::class,'store_image']);
 Route::get('/places1',[Places1::class,'places1']);
 Route::post('/places1',[Places1::class,'store']);
 Route::get('/student_details/{id}',[Places1::class,'student_details']);
-Route::get('/all_tuitions',[ShowTution::class,'all_tuition']);
+Route::get('/all_tuitions',[ShowTution::class,'tuition'])->name('all_tuition');
+Route::get('/all_students',[ShowTution::class,'all_students'])->name('all_students');
+Route::post('/find_tuition',[ShowTution::class,'findTuition']);
+
+Route::post('/application_tuition',[ShowTution::class,'applicationTuition']);
+
 
 
 Route::get('/places2',[Places1::class,'places2']);
@@ -148,11 +153,16 @@ Route::get('/teacher_info',[ShowTution::class,'teacher_info']);
 Route::get('/teacher_details/{id}',[ShowTution::class,'teacher_details']);
 Route::get('/all_teachers',[ShowTution::class,'all']);
 Route::post('/search_tutor',[ShowTution::class,'search_tutor']);
+Route::get('/search-tuition',[ShowTution::class,'searchTuition']);
+Route::get('/search-tutors',[ShowTution::class,'searchTutors']);
 
 Route::post('/opinions',[ShowTution::class,'opinion']);
 Route::get('/test/{id}',[ShowTution::class,'test']);
 
+Route::post('/application_tutor',[ShowTution::class,'applicationTutor']);
 
+Route::post('/login-admin-store',[ShowTution::class,'loginUser']);
+Route::get('/resister-admin',[ShowTution::class,'resisterAdmin']);
 
 
 
