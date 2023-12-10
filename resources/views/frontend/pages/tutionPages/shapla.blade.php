@@ -25,8 +25,6 @@
     <link href=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     <link href="   https://use.fontawesome.com/releases/v5.7.2/css/all.css"> --}}
 
-
-
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet">
@@ -46,8 +44,6 @@
     {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet"> --}}
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-
-
     {{-- New css --}}
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -61,13 +57,20 @@
 
     {{-- TemplateMo 557 Grad School --}}
 
-
-
-
-
-
-
     <style>
+        .logo1-image{
+            height:67px;
+            width: 70px;
+            border-radius: 70%;
+        }
+        .logo1-image:hover{
+            transition: 1s;
+           transform:rotate(360deg);
+           height: 77px;
+           width: 80px;
+        }
+
+
         .header {
             padding-top: 7.5rem;
             padding-bottom: 7.5rem;
@@ -97,26 +100,22 @@
                 border-top-left-radius: 50%;
                 border-top-right-radius: 50%
             }
-
             50% {
                 height: 80px;
                 border-top-left-radius: 75%;
                 border-top-right-radius: 75%
             }
-
             75% {
                 height: 160px;
                 border-top-left-radius: 85%;
                 border-top-right-radius: 85%
             }
-
             100% {
                 height: 320px;
                 border-top-left-radius: 100%;
                 border-top-right-radius: 100%
             }
         }
-
         .card .pic {
             position: relative
         }
@@ -126,7 +125,6 @@
             height: 280px;
             object-fit: cover
         }
-
         .card .date {
             display: flex;
             flex-direction: column;
@@ -140,13 +138,10 @@
             bottom: 0px;
             transition: all ease
         }
-
         .card .date .day {
             font-size: 14px;
             font-weight: 600
         }
-
-
         .card {
             position: relative;
             background-color: #323458;
@@ -161,20 +156,15 @@
         }
 
         /* --------------zoom start */
-
         .inner {
             overflow: hidden;
 
         }
-
         .inner img {
             transition: all 1.5s ease;
         }
-
         .inner:hover img {
             /* transform: scale(1.5); */
-
-
         }
 
         /*---- button----- */
@@ -191,19 +181,13 @@
             cursor: pointer;
             transition: all 0.5s;
             border-radius: 6px;
-
-
         }
-
         .button:hover,
         .button:focus {
             background-color: rgb(62, 247, 87);
-
             outline: 2px solid #d61a06;
             outline-offset: 8px;
         }
-
-
         .name-left {
             animation: nameleft 4s ease forwards;
         }
@@ -213,7 +197,6 @@
                 transform: translateX(-100rem);
                 opacity: 1;
             }
-
             100% {
                 transform: translateX(0);
                 opacity: 1
@@ -230,25 +213,40 @@
                 transform: translateX(100rem);
                 opacity: 1;
             }
-
             100% {
                 transform: translateX(0);
                 opacity: 1
             }
         }
+
+        .visible-class {
+            display: block; /* or any other style you want to apply when visible */
+        }
+
+        .hidden-class {
+            display: none; /* or any other style you want to apply when hidden */
+        }
+
+        @media (min-width: 768px) {
+
+        }
+        @media (min-width: 992px) {
+
+        }
+        @media (min-width: 1200px) {
+
+        }
     </style>
 
 </head>
 
-<body class="container" data-spy="scroll" data-target=".fixed-top" id="home">
+<body class="container " data-spy="scroll" data-target=".fixed-top" id="home">
 
     {{-- <-- Navigation --> --}}
     <nav class="container navbar navbar-expand-lg fixed-top navbar-dark">
         <div class="container">
-
             <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="/"><img src="newtem/images/logo.jpg" alt="alternative"
-                    style="height: 70px;margin-top:-1rem"></a>
+            <a class="navbar-brand" href="/"><img class="logo1-image" src="newtem/images/logoimage.png" alt="alternative"></a>
 
             <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
                 <span class="navbar-toggler-icon"></span>
@@ -257,52 +255,109 @@
             <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" style="font-size:1.3rem" href="{{ url('#home') }}">Home <span
-                                class="sr-only">(current)</span></a>
+                        <a class="nav-link page-scroll" style="font-size:1.3rem" href="{{ url('#home') }}">{{__('Home')}}<span
+                                class="sr-only"></span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" style="font-size:1.3rem" href="{{ url('#tutors') }}">Tutors</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link page-scroll" style="font-size:1.3rem"
-                            href="{{ url('#students') }}">Tuitions</a>
+                        <a class="nav-link page-scroll" style="font-size:1.3rem" href="{{ url('#tutors') }}">{{ __('Tutors') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link page-scroll" style="font-size:1.3rem"
-                            href="{{ url('#contact') }}">Contact</a>
+                            href="{{ url('#students') }}">{{ __("Tuitions") }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" style="font-size:1.3rem" href="{{ url('/login-admin') }}"> Sign
-                            in</a>
+                        <a class="nav-link page-scroll" style="font-size:1.3rem"
+                            href="{{ url('#contact') }}">{{ __("Contact") }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" style="font-size:1.3rem;"
-                            href="{{ url('/resister-admin') }}">Resister</a>
+                        <a class="nav-link " style="font-size:1.3rem" href="{{ url('/login-tutor') }}" id="dropdown01"
+                        >{{ __("Sign in") }}</a>
+                        {{-- <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            <a class="dropdown-item" style="padding-top:1.3rem;font-size:1rem" href="{{ url('/login-tutor') }}">{{ __("Login Tutor") }}</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" style="font-size:1rem" href="{{ url('/login-tuition') }}">{{ __("Login Tuition") }}</a>
+                        </div> --}}
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" style="font-size:1.3rem" href="#" id="dropdown01"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                        <a class="nav-link" style="font-size:1.3rem" href="#" id="dropdown01"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ __("Sign up") }}</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown01">
-                            <a class="dropdown-item page-scroll" href="#">Your Profile</a>
+                            <a class="dropdown-item"  style="padding-top:1.3rem;font-size:1rem" href="{{ url('/teacher_info') }}">{{ __("Register Tutor") }}</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item page-scroll" href="#">Log out</a>
+                            <a class="dropdown-item" style="font-size:1rem" href="{{ url('/places1') }}">{{ __("Register Tuition") }}</a> </div>
+                    </li>
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link" style="font-size:1.1rem;" href="#" id="dropdown01"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+
+                            {{-- @php
+                                $user = Session()->get('user');
+                            @endphp
+
+                            @if($user)
+                                <span class="d-block" style=" padding: 4px; background-color: darkslategray; border-radius: 8px">
+                                    {{ $user }}
+                                    <i class="fas fa-arrow-down"></i>
+                                </span>
+                            @else
+                                <span class="d-none"></span>
+                            @endif --}}
+
+                            <span  {{ Session()->get('user') }}? class="d-block" : class="d-none" style="font-size:1.3rem;padding:4px;background-color:darkslategray;border-radius:8px">{{ Session()->get('user')}}</span></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+
+                            {{-- @php
+                            $userT = NewTeacher::where('id',Session::get('user'))->first();
+                            $userS = NewStudent::where('id',Session::get('user'))->first();
+                            @endphp
+                            <a class="dropdown-item page-scroll  {{ $userT ? 'visible-class' : 'hidden-class' }}" href="{{ url('profile/'.$userT->id }}">{{ __("Your Profile") }}</a>
+                            <a class="dropdown-item page-scroll  {{ $userS ? 'visible-class' : 'hidden-class' }}" href="{{ url('profile/'.$userS->id }}">{{ __("Your Profile") }}</a> --}}
+                            @php
+                            $user = Session()->get('user');
+                            $userT = App\Models\NewTeacher::where('user',$user)->first();
+                            $userS = App\Models\NewStudent::where('user',$user)->first();
+                            @endphp
+                            @if ($userT)
+                                <a class="dropdown-item page-scroll visible-class" href="{{ url('profile/'.$userT->user) }}">
+                                    {{ __("Your Profile") }}
+                                </a>
+                                <a class="dropdown-item page-scroll" href="{{ url('/change-password') }}">{{ __("Change Password") }}</a>
+                                <a class="dropdown-item page-scroll" href="{{ url('/logout') }}">{{ __("Log out") }}</a>
+                            @endif
+                            @if ($userS)
+                                <a class="dropdown-item page-scroll visible-class" href="{{ url('profile/'.$userS->user) }}">
+                                    {{ __("Your Profile") }}
+                                </a>
+                                <a class="dropdown-item page-scroll" href="{{ url('/logout') }}">{{ __("Log out") }}</a>
+                                <a class="dropdown-item page-scroll" href="{{ url('/logout') }}">{{ __("Log out") }}</a>
+                            @endif
+
+                            <div class="dropdown-divider"></div>
                         </div>
                     </li>
 
                 </ul>
                 <span class="nav-item social-icons">
-                    <span class="fa-stack">
+                    {{-- <span class="fa-stack">
                         <a href="#your-link">
                             <i class="fas fa-circle fa-stack-2x"></i>
                             <i class="fab fa-facebook-f fa-stack-1x"></i>
                         </a>
-                    </span>
-                    <span class="fa-stack">
+                    </span> --}}
+                    <div class="change_language" >
+                        <select class="form-control lang-change" name="language" style="width:6.5rem;height:2rem">
+                            <option value="en" {{ session()->get('lang_code')=='en' ? 'selected' : ''}}> English</option>
+                            <option value="bn" {{ session()->get('lang_code')=='bn' ? 'selected' : ''}}> Bangla</option>
+                        </select>
+                    </div>
+                    {{-- <span class="fa-stack">
                         <a href="#your-link">
                             <i class="fas fa-circle fa-stack-2x"></i>
                             <i class="fab fa-twitter fa-stack-1x"></i>
                         </a>
-                    </span>
+                    </span> --}}
                 </span>
             </div> <!-- end of navbar-collapse -->
         </div> <!-- end of container -->
@@ -311,8 +366,8 @@
 
 
     <!-- Header -->
-    <header id="header" class="header">
-        <div class="row">
+    <header id="header" class="header container">
+        <div class="row container" >
             <div class="col-md-2"></div>
             <div class="col-md-5 name-left">
                 <img src="./assets/images/t1.png" alt="" style="height:100px;width:110px">
@@ -335,11 +390,11 @@
 
         <div class="container">
 
-            <div class="row">
+            <div class="row container">
                 <div class="col-lg-12">
 
                     <!-- Text Slider -->
-                    <div class="slider-container" style="margin-top: 4rem;margin-bottom:-5rem">
+                    <div class="slider-container" style="margin-top:4rem;margin-bottom:-5rem;">
                         <div class="swiper-container text-slider">
                             <div class="swiper-wrapper">
 
@@ -370,7 +425,7 @@
                                             <div class="image-container">
                                                 <img class="img-fluid" src="newtem/images/student3.avif"
                                                     alt="alternative"
-                                                    style="height:400px;width:450px; border-radius:30px;border:2px solid #ec1487">
+                                                    style="height:330px;width:450px; border-radius:30px;border:2px solid #ec1487">
                                             </div> <!-- end of image-container -->
                                         </div> <!-- end of col -->
                                         <div class="col-lg-6 col-xl-5">
@@ -391,7 +446,7 @@
                                             <div class="image-container">
                                                 <img class="img-fluid" src="newtem/images/images8.jpg"
                                                     alt="alternative"
-                                                    style="height:400px;width:450px; border-radius:30px;border:2px solid #ec1487">
+                                                    style="height:330px;width:450px; border-radius:30px;border:2px solid #ec1487">
                                             </div> <!-- end of image-container -->
                                         </div> <!-- end of col -->
                                         <div class="col-lg-6 col-xl-5">
@@ -413,7 +468,7 @@
                                             <div class="image-container">
                                                 <img class="img-fluid" src="newtem/images/student7.jpg"
                                                     alt="alternative"
-                                                    style="height:400px;width:450px; border-radius:30px;border:2px solid #ec1487">
+                                                    style="height:330px;width:450px; border-radius:30px;border:2px solid #ec1487">
                                             </div> <!-- end of image-container -->
                                         </div> <!-- end of col -->
                                         <div class="col-lg-6 col-xl-5">
@@ -450,7 +505,10 @@
     </header> <!-- end of header -->
     <!-- end of header -->
 
-
+{{-- <div>
+    @extends('lang');
+    {{ __('text.content') }}
+</div> --}}
 
 
     <!-- Registration -->
@@ -458,7 +516,7 @@
 
         {{-- new start here --}}
 
-        <div class="row" style="margin-bottom: 12rem;margin-top:1rem;">
+        <div class="row" style="margin-bottom: 12rem;margin-top:1.7rem;">
             <div class="col-lg-2 col-12"></div>
             <div class="col-lg-4 col-12">
                 <div class="features-post">
@@ -467,9 +525,9 @@
                             <h2><i class="fa fa-pencil" style="color: chocolate"></i> ছাএ/ছাএী</h2>
                         </div>
                         <div class="content-hide" style="font-weight:lighter;color:rgb(69, 39, 186)">
-                            <h6>আস্সালামুআলাইকুম।<br>আপনি কি ভালো শিক্ষক খুজছেন !! আমাদের এখানে ইন্জিনিয়ার ,ডাক্তার এবং
+                            <h6>আস্সালামুআলাইকুম।<br>আপনি কি হোম টিউটর খুজছেন !! আমাদের এখানে ইন্জিনিয়ার ,ডাক্তার এবং
                                 অন্নান্য সাবজেক্টের মেধাবি ছাএ/ছাএিদেরকে প্রাইভেটের জন্য দিয়ে থাকি ৷
-                                <br>আপনি যদি চান তাহলে ক্লিক করুন।
+                                <br>আপনি যদি চান তাহলে ক্লিক করে আপনার ইনফরমেশন দিন,ধন্যবাদ।
                             </h6>
                             {{-- <p class="hidden-sm">Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet.</p> --}}
                             <div class="button "><a href="{{ url('/places1') }}">ক্লিক করুন</a></div>
@@ -485,7 +543,7 @@
                         </div>
                         <div class="content-hide" style="font-weight:lighter;color: rgb(69, 39, 186)">
                             <h6>আস্সালামুআলাইকুম।<br>আপনি কি টিউশনি খুজছেন !! আমাদের এখানে বিভিন্ন গ্রুপ এবং ভার্সনের
-                                ছাএ/ছাএী শিক্ষকের জন্য আবেদন করেন। আপনি চাইলে ক্লিক করে দেখতে পারেন ৷
+                                ছাএ/ছাএী শিক্ষকের জন্য আবেদন করেছেন। আপনি যদি চান তাহলে ক্লিক করে আপনার ইনফরমেশন দিন,ধন্যবাদ ।৷
                             </h6>
                             {{-- <p class="hidden-sm">Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet.</p> --}}
                             <div class=" button"><a href="{{ url('/teacher_info') }}">Click Here</a></div>
@@ -494,44 +552,18 @@
                 </div>
             </div>
             <div class="col-lg-2 col-12"></div>
-
         </div>
-        {{-- new end here --}}
-
-
-
-        <!--Start Education Area-->
-        {{-- .............Design Card body............. --}}
-        {{-- <div class="eduction-area">
-    <div class="container-fluid p-0">
-        <div class="row g-0">
-            <div class="col-lg-3 col-md-6">
-                <div class="single-education-card bg-1">
-                    <div class="edication-content">
-                        <div class="icon">
-                            <i class="flaticon-college"></i>
-                        </div>
-                        <router-link :to="{name: 'AllInternships'}"><h3>Internship</h3></router-link>
-                        <router-link :to="{name: 'AllInternships'}" class="read-more-btn white-color">Show more<i class="flaticon-next"></i></router-link>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div> --}}
-        <!--End Education Area-->
-
 
 
         {{-- features tutor start --}}
-
         <div class="container" id="tutors">
             <div style="margin-top: 13rem;margin-bottom:4rem">
-                <h2 class="col-lg-12 text-center">Featured Tutors...</h2>
-                <p class=" text-center" style="margin-top:-1rem">There are many featured tutors here ,They are very
-                    good intelizent and experienced.They have included own informations in card details. They are
-                    looking for a good student to teach..</p> <!-- Text Slider -->
+                <h2 class="col-lg-12 text-center">{{ __("Featured Tutors") }}...</h2>
+                <p class=" text-center" style="margin-top:-1rem">{{ __("There are many featured tutors here") }} ,
+                    {{ __("They are very good intelizent and experienced")}} . {{ __("They have included own informations in this card") }} .
+                    {{ __("They are looking for good student to teach")}} . {{ __("Click on the card if you want to see the tutor details") }} ..
+                </p>
+                     <!-- Text Slider -->
             </div>
 
             <div class="" style="display:flex;flex-wrap:wrap;width:100%;margin:.4rem;box-sizing:border-box">
@@ -540,22 +572,27 @@
                         style="width: 340px;margin-left:.6rem;height:180px;overflow:hidden"><a
                             href="{{ url('/teacher_details/' . $teacher->id) }}" style="color: whitesmoke">
 
-                            <div class="d-flex ">
-                                <div class="inner">
-                                    <a href="{{ url('/teacher_details/' . $teacher->id) }}">
-                                        <img src="{{ asset('/teacher/' . $teacher->image) }}" alt="img"
-                                            style="height: 140px;width:133px">
-                                    </a>
-                                    <a href="#" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#exampleModal">
-                                        Apply Now
-                                    </a>
+                            <div class="d-flex">
+                                <div class="inner col-md-4">
+                                    <div style="width:200px;height:140;margin-left:-1rem">
+                                        <a class="" href="{{ url('/teacher_details/' . $teacher->id) }}">
+                                            <img src="{{ asset('/teacher/' . $teacher->image) }}" alt="img"
+                                                style="height:140px;width:200px">
+                                        </a>
+                                    </div>
+                                    <div style="display:flex;flex:wrap:wrap; margin-left:-1rem;width:100px">
+                                        <a href="{{ url('/application-tutors/' .$teacher->id) }}"
+                                         class="btn btn-primary btn-sm text-center" style="position: absolute;display:flex;flex-wrap:wrap;width:200px"
+                                         >
+                                         {{ __("Apply Now") }}
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class=" "><a href="{{ url('/teacher_details/' . $teacher->id) }}">
-                                        <div class="card-body" style="height:600px;">
+                                <div class="" style="display:flex;flex-wrap:wrap;width:100%"><a href="{{ url('/teacher_details/' . $teacher->id) }}">
+                                        <div class="card-body" style="height:600px">
                                             <p class="" style="color:lightgray;margin-top:-.8rem"> <span
                                                     style="font-size:1.2rem;color:#ffff">Name: </span>
-                                                {{ $teacher->full_name }}</p>
+                                                {{ $teacher->name }}</p>
                                             <p class="" style="color:lightgray;margin-top:-.8rem"> <span
                                                     style="font-size:1.2rem;color:#ffff">Ins: </span>
                                                 {{ $teacher->institution }}</p>
@@ -577,59 +614,24 @@
                 @endforeach
             </div><!-- end of div -->
 
-            <a class=" button " style="margin: 0 auto" href="{{ url('/search-tutors') }}">Show All Tutors</a>
+        </div>
+        <div class="text-center">
+            <a class="container default-btn btn " style="margin-top:2rem;width:12rem;border-radius:50px"
+                href="{{ url('/search-tutors') }}">{{ __("View All Tutors") }}</a>
         </div>
 
         <!-- Button trigger modal -->
 
-
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <h5 class="modal-title text-dark" id="exampleModalLabel">If you resister then apply now otherwise resister from here..</h5>
-
-                        <form action="{{ url('/login-admin-store') }}" method="POST" style="padding:3rem">
-                            @csrf
-                            <div class="form-row ">
-                                <div class="form-group col-md-9">
-                                    <input type="hidden" class="form-control" name="id" value="{{ $teacher->id }}"
-                                        placeholder="Enter Email" style="border: .1px solid black">
-                                </div>
-                                <div class="form-group col-md-9">
-                                    <input type="hidden" class="form-control" name="name" value="{{ $teacher->name }}"
-                                        placeholder="Enter Password" style="border: .1px solid black">
-                                </div>
-                                <button type="submit"
-                                    class=" button btn-success col-md-5 form-group form-control"
-                                   >Apply Now</button>
-                        </form>
-                        <a class="button bg-success ml-5" href="{{ url('/places1') }}">Resister Here</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
         {{-- end feature tutor --}}
 
         <div style="margin-top: 13rem;margin-bottom:-5rem" id="students">
-            <h2 class="col-lg-12 text-center" style="margin-top: 13rem;margin-bottom:-4rem">Available Tuition</h2>
-            <p class="p-heading text-center" style="margin-top: 5rem">There are many students here , They are
-                looking for a good teacher..</p> <!-- Text Slider -->
+            <h2 class="col-lg-12 text-center" style="margin-top: 13rem;margin-bottom:-4rem">{{ __("Available Tuition") }}</h2>
+            <p class="p-heading text-center" style="margin-top: 5rem">{{ __("There are many students here") }} , {{ __("They are looking for a good teacher")}}..</p> <!-- Text Slider -->
         </div>
-        <div class="slider-container" style="margin-top: 10rem;margin-bottom:-5rem">
+        <div class="slider-container" style="margin-top: 10rem;margin-bottom:-5rem;">
 
             <div class="swiper-container text-slider">
                 <div class="swiper-wrapper">
-
                     <!-- Slide -->
                     @foreach ($students as $student)
                         <div class="swiper-slide">
@@ -639,11 +641,11 @@
 
                                 </div>
 
-                                <div class="col-lg-4 col-xl-4 container" style="background-color:gray;padding:3rem"><a
+                                <div class="col-lg-4 col-xl-4 container" style="background-color:gray;padding:3rem;border-radius:30px"><a
                                         href="{{ url('/student_details/' . $student->id) }}">
 
                                         <p class="" style="font-size: 1.35rem;color:black"><span
-                                                style="font-size: 1.5rem;font-weight:200;color:white">Student
+                                                style="font-size: 1.5rem;font-weight:200;color:white">
                                                 Name:- </span> {{ $student->name }}</p>
                                         <p class="" style="font-size: 1.35rem;color:black"><span
                                                 style="font-size: 1.5rem;font-weight:200;color:white">Class:
@@ -663,9 +665,12 @@
                                         {{-- <p class="p-large">The first desktop app for web designers. Create beautiful websites with minimum HTML/CSS</p>
                                         <a class="btn-solid-lg page-scroll" href="#registration">FREE TRIAL</a>
                                         <a class="btn-outline-lg page-scroll" href="#features">DISCOVER</a> --}}
-                                        <h3 style="margin-bottom:-2rem" class="button"><a
+                                        <div style="margin-bottom:-2rem;display:flex;justify-content:space-between"><a
+                                                class="text-dark btn btn-warning py-2"
                                                 href="{{ url('/student_details/' . $student->id) }}"
-                                                style="width: 100%">Tuition Details</a></h3>
+                                                style="width: 50%">Show Details</a>
+                                                <a class="btn btn-primary"  href="{{ url('/application-tuition/' . $student->id) }}" style="width: 50%;margin-left:2rem">Apply Now</a>
+                                            </div>
                                     </a>
 
                                 </div> <!-- end of text-container -->
@@ -674,8 +679,6 @@
                                 <div class="col-lg-4 col-xl-4">
                                 </div>
                             </div> <!-- end of row -->
-
-
                         </div> <!-- end of swiper-slide -->
                     @endforeach
                     <!-- end of slide -->
@@ -689,12 +692,17 @@
         </div> <!-- end of slider-container -->
         <!-- end of text slider -->
 
+        <div class="text-center">
+            <a class="container default-btn btn " style="margin-top:8rem;width:13rem;border-radius:50px"
+               href="{{ url('/all_students') }}">{{ __("View All Tuitions") }}</a>
+        </div>
+
         <!-- Features -->
         <div class="container" id="features" class=" bg-dark-blue" style="margin-top: 15rem">
             <div class="text-center">
-                <h2 class="h2-heading">Our Services..</h2>
-                <p class="p-heading">This website is providing many services like providing tuition, website design and
-                    development.</p>
+                <h2 class="h2-heading">{{ __("Our Services") }}..</h2>
+                <p class="p-heading">{{ __("This website is providing many services like providing tuition") }},
+                 {{ __("website design and development") }}.</p>
             </div> <!-- end of div -->
         </div> <!-- end of cards-1 -->
         <!-- end of features -->
@@ -710,12 +718,12 @@
                                 <li class="nav-item">
                                     <a style="font-size: .9rem" class="nav-link active" id="nav-tab-1"
                                         data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1"
-                                        aria-selected="true"> Tution Provide</a>
+                                        aria-selected="true"> {{ __("Tutor Provide") }}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a style="font-size: .9rem" class="nav-link" id="nav-tab-2" data-toggle="tab"
                                         href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false">
-                                        Website Design</a>
+                                        {{ __("Website Design") }}</a>
                                 </li>
                             </ul>
 
@@ -734,15 +742,12 @@
                             <div class="row" style="width: 100%">
                                 <div class="col-md-5">
 
-                                    <h4>Our Services..</h4>
-                                    <p>Here we give meritorious students of engineer, doctor and other subjects for
-                                        private.</p>
+                                    <h4>{{ __("Our Services") }}..</h4>
+                                    <p>{{ __("Here we give meritorious students of engineering") }} , {{ __("doctor and other subjects for private") }}.</p>
                                     <ul class="list-unstyled li-space-lg">
                                         <li class="media">
                                             <i class="fas fa-square"></i>
-                                            <div class="media-body"><strong>We provide tutors and tuitions</strong> in
-                                                Bangladesh
-                                                area.</div>
+                                            <div class="media-body"><strong>{{ __("We provide tutors and tuitions in Bangladesh area") }}.</strong></div>
                                         </li>
 
                                     </ul>
@@ -769,15 +774,12 @@
 
                             <div class="row" style="width: 100%">
                                 <div class="col-md-5">
-                                    <h4>Our Services..</h4>
-                                    <p>This website provides various types of website design such as Personal
-                                        website , Ecommerce website , Community website ,School management website.</p>
+                                    <h4>{{ __("Our Services") }}..</h4>
+                                    <p>{{ __("This website provides various types of website design such as") }}, {{ __("Personal website") }}, {{ __("Ecommerce website") }}, {{ __("Community website") }}, {{ __("School management website") }}.</p>
                                     <ul class="list-unstyled li-space-lg">
                                         <li class="media">
                                             <i class="fas fa-square"></i>
-                                            <div class="media-body"><strong>We provide varius types of website design
-                                                    and development</strong> in Bangladesh
-                                                area.
+                                            <div class="media-body"><strong>{{ __("We provide varius types of website design and development in Bangladesh area") }}</strong> .
                                             </div>
                                         </li>
                                     </ul>
@@ -785,7 +787,7 @@
                                 <div class="col-md-2"></div>
                                 <div class="col-md-5">
                                     <div class="image-container">
-                                        <img class="img-fluid" src="newtem/images/details-2.jpg" alt="alternative"
+                                        <img class="img-fluid" src="newtem/images/website_image1.png" alt="alternative"
                                             style="height:320px; width:650px">
                                     </div> <!-- end of image-container -->
                                 </div>
@@ -800,7 +802,8 @@
                 </div> <!-- end of row -->
             </div> <!-- end of container -->
         </div> <!-- end of tabs -->
-    </div> <!-- end of tab -->
+    </div>
+     <!-- end of tab -->
 
 
 
@@ -820,21 +823,19 @@
                 </div> <!-- end of col -->
                 <div class="col-lg-6 col-xl-5">
                     <div class="text-container">
-                        <h2>A few words about our website. .</h2>
-                        <p>This website has designed by php language with laravel framework . This website provides
-                            Tutors and Tuitions in bangladesh area. And provides
-                            website design and development..
+                        <h2>{{ __("A few talk about our website") }}..</h2>
+                        <p>{{ __("This website has designed by php language with laravel framework") }} . {{ __("This website provides Tutors and Tuitions in bangladesh area") }}.
+                             {{ __("And provides website design and development") }}..
                         </p>
-                        <p>Our experienced designers and developers have implemented cutting edge tools that
-                            will help you sketch your ideas in record time and prepare the design</p>
+                        <p>{{ __("Our mission is to bring convenience to everyone") }}</p>
                         <ul class="list-unstyled li-space-lg">
                             <li class="media">
                                 <i class="fas fa-square"></i>
-                                <div class="media-body"><strong>You can visit</strong>my personal website..
+                                <div class="media-body"><strong>{{ __("You can visit my personal website") }}.. </strong>
                                 </div>
                             </li>
                         </ul>
-                        <a class="btn-solid-reg " href="{{ url('https://suhail008.netlify.app') }}">VISIT</a>
+                        <a class="btn-solid-reg " href="{{ url('https://suhail008.netlify.app') }}">{{ __("VISIT") }}</a>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -901,8 +902,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="h2-heading">Video </h2>
-                    <p class="p-heading">Sometimes we need refreshment. Let us listen some important boyan... </p>
+                    <h2 class="h2-heading">{{ __("Video") }} </h2>
+                    <p class="p-heading">{{ __("Sometimes we need refreshment") }}. {{ __("Let us listen some important boyan") }}... </p>
 
                     <!-- Video Preview -->
                     <div class="image-container">
@@ -1043,8 +1044,8 @@
     <div class="container" style="background-color: #0b0433">
         <div id="contact">
             <div class="text-center py-5">
-                <h2>Stay with us</h2>
-                <h5>Sent your opinion about any matter and Stay with us..</h5>
+                <h2>{{ __("Stay with us") }}</h2>
+                <h5>{{ __("Sent your opinion about any matter and Stay with us") }}..</h5>
             </div>
         </div>
 
@@ -1227,6 +1228,16 @@
             // , 'Success! New Student added'
             // );
         @endif
+    </script>
+
+    <script>
+        var url = "{{ route('lang.change') }}";
+
+        $('.lang-change').change(function(){
+        let lang_code = $(this).val();
+        window.location.href = url + "?lang="+ lang_code;
+        });
+
     </script>
 
 </body>

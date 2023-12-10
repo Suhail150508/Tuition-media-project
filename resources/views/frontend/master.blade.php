@@ -53,15 +53,35 @@
 		<!-- /FOOTER -->
 
 		<!-- jQuery Plugins -->
-		<script src="js/jquery.min.js"></script>
+		{{-- <script src="js/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/slick.min.js"></script>
 		<script src="js/nouislider.min.js"></script>
 		<script src="js/jquery.zoom.min.js"></script>
-		<script src="js/main.js"></script>
+		<script src="js/main.js"></script> --}}
+
+
+   <!-- Scripts -->
+   <script src="newtem/js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+   <script src="newtem/js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+   <script src="newtem/js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+   <script src="newtem/js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+   <script src="newtem/js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
+   <script src="newtem/js/scripts.js"></script> <!-- Custom scripts -->
 
 
 
+   <!-- Bootstrap core JavaScript -->
+   <script src="vendor/jquery/jquery.min.js"></script>
+   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+   {{-- <script src="assets/js/isotope.min.js"></script> --}}
+   <script src="assets/js/owl-carousel.js"></script>
+   <script src="assets/js/lightbox.js"></script>
+   <script src="assets/js/tabs.js"></script>
+   <script src="assets/js/video.js"></script>
+   <script src="assets/js/slick-slider.js"></script>
+   <script src="assets/js/custom.js"></script>
 
 
 	</body>

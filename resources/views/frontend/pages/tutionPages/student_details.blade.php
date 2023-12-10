@@ -160,32 +160,32 @@
        <div>
         <div class="row" >
 
-            <div   class="col-md-8" style="padding-bottom:-8rem">
+        <div class="col-md-8" style="padding-bottom:-8rem">
         <div style="background-color:lightgrey;color:blue;height:130vh;">
+            <a class="btn btn-success float-right m-2" href="{{url('/download-pdf-student/' . $students->id) }}">Download Tuition Info</a>
             <img src="../assets/images/student-logo.webp " alt="img" style="margin-left:6rem;height:150px;width:150px;margin-top:3rem;border-radius:100px;border:10px solid #f2e">
-         <div  class="" style="margin-top:3rem;paddig-left:2rem;margin-left:6rem;width:500px;height:100vh;margin-bottom:-21rem">
-            <h2 class="" style="border-bottom: 5px solid #cc3277">Tuition Details</h2>
-            <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:#9932cc">ID No: </span> {{ $students->id + 100 }}</p>
-            <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:#9932cc">Name: </span> {{ $students->name }}</p>
-            <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">Gender: </span> {{ $students->gender }}</p>
-            <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">Class: </span> {{ $students->class }}</p>
-            <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">Medium: </span> {{ $students->medium }}</p>
-            <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">Subject: </span> {{ $students->subject }}</p>
-            <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid"> District: </span> {{ $students->district }}</p>
+            <div  class="" style="margin-top:3rem;paddig-left:2rem;margin-left:6rem;width:500px;height:100vh;margin-bottom:-21rem">
+                <h2 class="" style="border-bottom: 5px solid #cc3277">{{ __("Tuition Details") }}</h2>
+                <p style="color:#d45698;font-size:1.1rem"><span style="font-size:1.3rem;color:#9932cc">{{ __("ID No") }}: </span> {{ $students->id + 100 }}</p>
+                <p style="color:#d45698;font-size:1.1rem"><span style="font-size:1.3rem;color:#9932cc">{{ __("Name") }}: </span> {{ $students->name }}</p>
+                <p style="color:#d45698;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">{{ __("Gender") }}: </span> {{ $students->gender }}</p>
+                <p style="color:#d45698;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">{{ __("Class") }}: </span> {{ $students->class }}</p>
+                <p style="color:#d45698;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">{{ __("Medium") }}: </span> {{ $students->medium }}</p>
+                <p style="color:#d45698;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">{{ __("Subject") }}: </span> {{ $students->subject }}</p>
+                <p style="color:#d45698;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid"> {{ __("District") }}: </span> {{ $students->district }}</p>
+                <p style="color:#d45698;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid"> {{ __("Location") }}: </span> {{ $students->local_address }}</p>
 
-         </div>
-
-         <h2 class="" style="border-bottom: 5px solid #cc3277;width:500px;margin-left:6rem;margin-top:3rem">Tuition Requirements</h2>
-         <div  class="" style="margin-top:1rem;paddig-left:2rem;margin-left:6rem;width:500px">
-         <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:#9932cc">Available Tuition Schedule: </span> {{ $students->schedule}}</p>
-         <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">Expected Students Level: </span> {{ $students->student_level }}</p>
-         <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">Prefered Subject: </span> {{ $students->prefered_subject }}</p>
-         <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">Expected Salary: </span> {{ $students->salary }}</p>
-         </div>
+            </div>
+            <br>
+            <h2 class="" style="border-bottom: 5px solid #cc3277;width:500px;margin-left:6rem;margin-top:3rem">{{ __("Tuition Requirements") }}</h2>
+            <div  class="" style="margin-top:1rem;paddig-left:2rem;margin-left:6rem;width:500px">
+                <p style="color:#d45698;font-size:1.1rem"><span style="font-size:1.3rem;color:#9932cc">{{ __("Available Tuition Schedule") }}: </span> {{ $students->schedule}}</p>
+                <p style="color:#d45698;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">{{ __("Expected Salary") }}: </span> {{ $students->salary }}</p>
+            </div>
 
         </div>
         <div class="my-2 " style="">
-        <a class=" button " href="{{ url('/all_students') }}" style="font-size:1.6rem;padding:1rem; margin-left:17rem;width:32%">View All Tuitions</a>
+        <a class=" button " href="{{ url('/all_students') }}" style="font-size:1.6rem;padding:1rem; margin-left:17rem;width:32%">{{ __("View All Tuitions") }}</a>
         </div>
       </div>
 
@@ -194,16 +194,91 @@
 
             <div class="col-md-4" style="background-color: darkcyan;height:150vh">
 
-                <div class="text-white p-5 "  style="background-color:purple;margin-left:-.8rem">
-                    <h3 class="mb-5">Apply for any tuition</h3>
-                    <form action="{{ url('/application_tuition') }}" method="POST"  enctype="multipart/form-data">
-                            @csrf
+                <div class="text-white p-5 " style="background-color:purple;margin-left:-.8rem">
+                    <h3 class="mb-5">{{ __("Apply for this tuition") }}</h3>
+                    <form action="{{ url('/application-tutor') }}" method="POST"  enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group col-md-9">
+                            <input type="text" class="form-control" name="tuition_id" placeholder="Enter Tuition id" style="border: .1px solid black" required>
+                        </div>
+                        <div class="form-group col-md-9">
+                            <input type="text" class="form-control" name="name" placeholder="Enter your name" style="border: .1px solid black" required>
+                        </div>
 
-                        <input type="text" class="form-control" name="tuitions_id" placeholder="Enter Tuition id">
-                        <input type="text" class="form-control my-3 py-3" name="name" placeholder="Enter Tuition name">
-                        <textarea class="form-control cleditor py-3" name="cv" placeholder="Enter your CV with mobile no:"></textarea>
+                          <div class="form-group col-md-9">
+                            <select class="form-control" name="gender" style="border: .1px solid black" required>
+                              <option selected>Select Gender</option>
+                              <option>male</option>
+                              <option>female</option>
+                            </select>
+                          </div>
 
-                        <button type="submit" class="button btn-primary" style="width:100%;margin-top:1rem">Submit</button>
+                          <div class="form-group col-md-9" >
+                            <select id="inputState" class="form-control" name="institution"  required style="border: .1px solid black" required>
+                             <option selected> Select your institution</option> <i class="fa fa-sort-desc" aria-hidden="true"></i>
+                             <option>University of Dhaka</option>
+                             <option>Bangladesh University of Engineering and Technology</option>
+                             <option>Khulna University of Engineering & Technology</option>
+                             <option>Rajshahi University of Engineering & Technology</option>
+                             <option>Chittagong University of Engineering & Technology</option>
+                             <option>Dhaka University of Engineering & Technology, Gazipur</option>
+                             <option>University of Rajshahi</option>
+                             <option>Jahangirnagar University</option>
+                             <option>Khulna University</option>
+                             <option>Jagannath University</option>
+                             <option>Bangladesh University of Textiles</option>
+                             <option>Islamic Arabic University</option>
+                             <option>Begum Rokeya University</option>
+                             <option>Sher-e-Bangla Agricultural University</option>
+                             <option>Shahjalal University of Science and Technology</option>
+                             <option>Pabna University of Science and Technology</option>
+                             <option>Patuakhali Science and Technology University</option>
+                             <option>Rangamati Science and Technology University</option>
+                             <option>Hajee Mohammad Danesh Science & Technology University</option>
+                             <option>Bangabandhu Sheikh Mujib Medical University</option>
+                             <option>Mawlana Bhashani Science and Technology University</option>
+                             <option>Jashore University of Science and Technology</option>
+                             <option>Noakhali Science and Technology University</option>
+                             <option>Bangabandhu Sheikh Mujibur Rahman Science and Technology University</option>
+                             <option>Bogura Science and Technology University</option>
+                             <option>Jashore University of Science and Technology</option>
+                             <option>Jashore University of Science and Technology</option>
+                             <option>Others</option>
+                           </select>
+                         </div>
+
+                         <div class="form-group col-md-9">
+                            <input class="form-control" type="text" name="subject" placeholder="Enter subject name"  style="border: .1px solid black" required>
+                        </div>
+
+                          <div class="form-group col-md-9">
+                            <select id="inputState" class="form-control" name="district" placeholder="District" style="border: .1px solid black" required>
+                              <option selected>Select your District</option>
+                              <option >Dhaka</option>
+                              <option>Rajshahi</option>
+                              <option>Dinajpur</option>
+                              <option>Rangpur</option>
+                              <option>Pabna</option>
+                              <option>Kushtia</option>
+                              <option>Khulna</option>
+                              <option>Mymensingh</option>
+                              <option>Jessore</option>
+                              <option>Chittagong</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group col-md-9">
+                              <textarea class="form-control cleditor" name="location" placeholder="Inter your present location" style="border: .1px solid black" required></textarea>
+                          </div>
+
+                          <div class="form-group col-md-9" >
+                            <input type="number" class="form-control" name="mobile" placeholder="Inter your mobile number" style="border: .1px solid black" required>
+                           </div>
+
+                          <div class="form-group col-md-9">
+                            <button type="submit" class="form-control button btn-primary " style="width:100%">{{ __("Apply Now") }}</button>
+                          </div>
+
                     </form>
                 </div>
 

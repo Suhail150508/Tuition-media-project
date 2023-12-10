@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('new_students', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('email');
+            $table->string('password');
+            $table->string('user')->nullable;
             $table->string('class');
             $table->string('subject');
             $table->string('medium');

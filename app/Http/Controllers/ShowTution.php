@@ -13,6 +13,8 @@ use App\Models\TeacherCategory;
 use App\Models\ApplicationTutor;
 use Yajra\DataTables\DataTables;
 use App\Models\ApplicationTuition;
+use App\Notifications\NewNotification;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Redirect;
 // use Illuminate\Console\View\Components\Alert;
 
@@ -30,53 +32,96 @@ class ShowTution extends Controller
 
         return view('frontend.pages.tutionPages.student_details',compact('details'));
     }
-    public function teachers_information(Request $request){
-        $teachers_information = new NewTeacher();
-        $teachers_information->name = $request->name;
-        $teachers_information->email = $request->email;
-        $teachers_information->mobile = $request->mobile;
-        $teachers_information->experience = $request->experience;
-        $teachers_information->full_name = $request->full_name;
-        $teachers_information->gender = $request->gender;
-        $teachers_information->institution = $request->institution;
-        $teachers_information->subject = $request->subject;
-        $teachers_information->district = $request->district;
-        $teachers_information->present_address = $request->present_address;
-        $teachers_information->schedule = $request->schedule;
-        $teachers_information->student_level = $request->student_level;
-        $teachers_information->prefered_subject = $request->prefered_subject;
-        $teachers_information->salary = $request->salary;
 
-        // $teachers_information->image =$request->file('image')->store('teacher');
-
-        // $teachers_information->save();
-
-
-        if($request->hasFile('image'))
-        {
-            $file=$request->file('image');
-            $extension = $file->getClientOriginalExtension();
-            $fileName = time().'.'. $extension;
-            $file->move('teacher', $fileName);
-            $teachers_information->image = $fileName;
-        }
-        $teachers_information->save();
-
-
-        return back()->with('message','আপনাকে ধন্যবাদ !');
-    }
-
-
-    public function teacher_info(){
+    public function teacherInfo (){
         return view('frontend.pages.tutionPages.teacher_info');
     }
+    // public function teacherStoreInfo(Request $request){
+    //     $teachers_information = new NewTeacher();
+    //     $teachers_information->name = $request->name;
+    //     $teachers_information->email = $request->email;
+    //     $teachers_information->user = 'tutor';
+    //     $teachers_information->password = $request->password;
+    //     $teachers_information->mobile = $request->mobile;
+    //     $teachers_information->experience = $request->experience;
+    //     $teachers_information->gender = $request->gender;
+    //     $teachers_information->institution = $request->institution;
+    //     $teachers_information->subject = $request->subject;
+    //     $teachers_information->district = $request->district;
+    //     $teachers_information->present_address = $request->present_address;
+    //     $teachers_information->schedule = $request->schedule;
+    //     $teachers_information->student_level = $request->student_level;
+    //     $teachers_information->prefered_subject = $request->prefered_subject;
+    //     $teachers_information->salary = $request->salary;
+
+    //     // $teachers_information->image =$request->file('image')->store('teacher');
+    //     // $teachers_information->save();
+
+    //     if($request->hasFile('image'))
+    //     {
+    //         $file=$request->file('image');
+    //         $extension = $file->getClientOriginalExtension();
+    //         $fileName = time().'.'. $extension;
+    //         $file->move('teacher', $fileName);
+    //         $teachers_information->image = $fileName;
+    //     }
+    //     $teachers_information->save();
+
+    //     // $email = NewTeacher::where('mobile',$request->mobile)->first();
+    //     // $email->notify(new NewNotification());
+
+    //     $users = NewTeacher::where('created_at', '>=', now()->subDay())->get();
+
+    //     foreach($users as $user){
+    //         $user->notify(new NewNotification());
+    //     }
+    //     return redirect()->to('/login-tutor')->with('message','আপনাকে ধন্যবাদ !');
+    // }
+
+
+    public function teacherStoreInfo(Request $request)
+{
+    $teachers_information = new NewTeacher();
+    $teachers_information->name = $request->name;
+    $teachers_information->email = $request->email;
+    $teachers_information->user = 'tutor';
+    $teachers_information->password = $request->password;
+    $teachers_information->mobile = $request->mobile;
+    $teachers_information->experience = $request->experience;
+    $teachers_information->gender = $request->gender;
+    $teachers_information->institution = $request->institution;
+    $teachers_information->subject = $request->subject;
+    $teachers_information->district = $request->district;
+    $teachers_information->present_address = $request->present_address;
+    $teachers_information->schedule = $request->schedule;
+    $teachers_information->student_level = $request->student_level;
+    $teachers_information->prefered_subject = $request->prefered_subject;
+    $teachers_information->salary = $request->salary;
+
+    if ($request->hasFile('image')) {
+        $file = $request->file('image');
+        $extension = $file->getClientOriginalExtension();
+        $fileName = time() . '.' . $extension;
+        $file->move('teacher', $fileName);
+        $teachers_information->image = $fileName;
+    }
+
+    $teachers_information->save();
+
+    // Sending notification to the newly created teacher
+    $teachers_information->notify(new NewNotification($teachers_information));
+
+    return redirect()->to('/login-tutor')->with('message', 'আপনাকে ধন্যবাদ !');
+}
+
 
     public function teacher_details($id){
 
         $teachers = NewTeacher::find($id);
         $teacher_all = NewTeacher::all();
+        $user = User::find('1');
         // $categories = TeacherCategory::all();
-        return view('frontend.pages.tutionPages.teacher_details',compact('teachers','teacher_all'));
+        return view('frontend.pages.tutionPages.teacher_details',compact('teachers','teacher_all','user'));
         // return view('frontend.pages.tutionPages.modarn');
     }
     // public function all(Request $request){
@@ -128,13 +173,6 @@ public function all_students(){
 public function tuition(Request $request)
 {
     if ($request->ajax()) {
-    //     $tuitions = NewStudent::select(['id', 'name', 'class', 'medium', 'schedule', 'days', 'salary'])->get();
-    //     return DataTables::of($tuitions)
-    //     ->addColumn('action', function ($tuition) {
-    //         return '<a href="' . route('all_tuition', $tuition->id) . '" class="btn btn-primary">View Details</a>';
-    //     })
-    //         ->rawColumns(['action'])
-    //         ->make(true);
 
 
 
@@ -165,7 +203,8 @@ public function tuition(Request $request)
                  ->orWhere('subject','like',"%$search%")
                  ->orWhere('salary','like',"%$search%")
                  ->orWhere('schedule','like',"%$search%")
-                 ->orWhere('district','like',"%$search%");
+                 ->orWhere('district','like',"%$search%")
+                 ->orWhere('local_address','like',"%$search%");
                  })->paginate(6);
 
         // $students = NewStudent::where('class','LIKE','%'.$request->class.'%');
@@ -184,66 +223,198 @@ public function tuition(Request $request)
             ->orWhere('schedule','like',"%$search%")
             ->orWhere('salary','like',"%$search%")
             ->orWhere('present_address','like',"%$search%");
-                 })->paginate(6);
+                 })->paginate(9);
 
         // $students = NewStudent::where('class','LIKE','%'.$request->class.'%');
         return view('frontend.pages.tutionPages.eadgah',compact('tutors'));
 
     }
 
-    public function applicationTuition(Request $request){
+    public function applicationTuition($id){
 
-      $request->validate([
-            'tuitions_id'=>'required',
-            'name'=>'required',
-            'cv'=>'required',
+        $user = Session()->get('user');
+        if($user){
+            $user = NewTeacher::where('user',$user)->first();
+            // dd($name);
+            if($user->user == 'tutor'){
+                ApplicationTuition::insert([
+                    'tuitions_id'=>$id,
+                    'name' => $user->name,
+                    'cv' =>'Finding tuition'
+                    ]);
+                return redirect()->back()->with('message','Application successfully added');
+            }else{
+                return redirect()->to('/login-tutor')->with('message','You do not have registration' );
+            }
+            }else{
 
-      ]);
-
-      $data = new ApplicationTuition;
-      $data->tuitions_id= $request->tuitions_id;
-      $data->name= $request->name;
-      $data->cv= $request->cv;
-
-      $data->save();
-
-      return back()->with('message','Application added successfully');
-    }
-
-    public function applicationTutor(Request $request){
-
-        $request->validate([
-            'tutors_id'=>'required',
-            'name'=>'required',
-            'information'=>'required',
-
-      ]);
-
-      $data = new ApplicationTutor;
-      $data->tutors_id= $request->tutors_id;
-      $data->name= $request->name;
-      $data->information= $request->information;
-
-      $data->save();
-      return back()->with('message','Application added successfully');
+                return redirect()->to('/login-tutor')->with('message','You do not have registration' );
+            }
 
     }
 
-public function loginUser(Request $request){
-    $data = User::where('id',$request->id)->where('name',$request->name)->first();
+    public function applicationTutor($id){
+        $user = Session()->get('user');
+        $user = NewStudent::where('user',$user)->first();
+        // dd($user->name );
+        if($user->user =='tuition'){
+            ApplicationTutor::insert([
+                'tutors_id'=>$id,
+                'name' =>$user->name,
+                'information' =>'Finding tutors'
+                ]);
+            return redirect()->back()->with('message','Application successfully added');
+        }else{
+          return redirect()->to('/login-tuition')->with('message','You do not have registration' );
+        }
 
-   if(!$data){
-    return redirect()->back()->with('message','At first resister here');
-   }else{
-    $tuitions =  ApplicationTuition::insert([
-        'id' => $data->id,
-        'name' => $data->name
-     ]);
-     return view('frontend.pages.tutionPages.tuitionAdmin.admin_login',compact('tuitions'));
-   }
+
+    //     $request->validate([
+    //         'tutors_id'=>'required',
+    //         'name'=>'required',
+    //         'information'=>'required',
+
+    //   ]);
+
+    //   $data = new ApplicationTutor;
+    //   $data->tutors_id= $request->tutors_id;
+    //   $data->name= $request->name;
+    //   $data->information= $request->information;
+
+    //   $data->save();
+    //   return back()->with('message','Application added successfully');
+
+    }
+
+public function loginTutor(){
+return view('frontend.pages.tutionPages.tuitionAdmin.login_tutor');
 }
-public function resisterAdmin(){
+public function loginTuition(){
+return view('frontend.pages.tutionPages.tuitionAdmin.login_tuition');
+}
+
+public function loginStoreTutor(Request $request)
+{
+    $request->validate([
+        'email' => 'required|string',
+        'password' => 'required|string',
+        'g-recaptcha-response' => 'required|captcha'
+    ], [
+        'g-recaptcha-response.required' => 'Please verify that you are not a robot.',
+        'g-recaptcha-response.captcha' => 'Captcha error! Try again later .',
+    ]);
+
+    $userT = NewTeacher::where('email', $request->email)->where('password', $request->password)->first();
+    $userS = NewStudent::where('email', $request->email)->where('password', $request->password)->first();
+
+    if ($userS && $userS->user === 'tuition') {
+        // dd('ok s');
+        Session()->put('id', $userS->id);
+        Session()->put('user', $userS->user);
+        return redirect()->to('/')->with('message', 'Successfully Tutor logged in');
+    } elseif ($userT && $userT->user === 'tutor') {
+        // dd('ok t');
+        Session()->put('id', $userT->id);
+        Session()->put('user', $userT->user);
+        return redirect()->to('/')->with('message', 'Successfully Tuition logged in');
+    } else {
+        // if ($userT && $userT->user === 'tutor') {
+        //     return redirect()->to('/teacher_info')->with('message', 'You do not have registered');
+        // }
+        // if ($userS && $userS->user === 'tuition') {
+        //     return redirect()->to('/places1')->with('message', 'You do not have registered');
+        // }
+        return back()->with('message', 'Do not match password, please register');
+
+    }
+}
+
+
+// public function loginStoreTutor(Request $request){
+
+//     $request->validate([
+//         'email' => 'required|string',
+//         'password' => 'required|string',
+//         'g-recaptcha-response' => 'required|captcha'
+
+//         // 'g-recaptcha-response' => [
+//         //     'required' => 'Please verify that you are not a robot.',
+//         //     'captcha' => 'Captcha error! try again later or contact site admin.',
+//         // ],
+//     ]);
+//     // dd($request->email);
+//     $userT = NewTeacher::where('email',$request->email)->where('password',$request->password)->first();
+//     $userS = NewStudent::where('email',$request->email)->where('password',$request->password)->first();
+
+//     if($userS->user === 'tuition'){
+//          dd('ok t');
+//         Session()->put('id',$userS->id);
+//         Session()->put('user',$userS->user);
+//         return redirect()->to('/')->with('message','successfully Tutor loged in');
+//     }
+//     elseif($userT->user === 'tutor'){
+//         dd('ok s');
+//         Session()->put('id',$userT->id);
+//         Session()->put('user',$userT->user);
+//         return redirect()->to('/')->with('message','successfully Tuition loged in');
+//     }
+//     else{
+//         if($userT->user === 'tutor'){
+//         return redirect()->to('/teacher_info')->with('message','You do not have registered' );
+//     }
+//     if($userS->user === 'tuition'){
+//             return redirect()->to('/places1')->with('message','You do not have resistered' );
+//         }
+//     }
+// //    $user = NewTeacher::where('email',$request->email)->where('password',$request->password)->first();
+// // if($user){
+//         //     Session()->put('tutor_id',$user->id);
+//         //     Session()->put('user',$user->user);
+//     //     return redirect()->to('/')->with('message','successfully loged in');
+//     // }else{
+//     //   return redirect()->to('/teacher_info')->with('message','You do not have registered' );
+//     // }
+
+// //     $data = ApplicationTutor::where('tutors_id',$request->id)->first();
+// //    if(!$data){
+// //         ApplicationTutor::insert([
+// //             'tutors_id'=>$request->id,
+// //             'name' => 'tuition',
+// //             'information' =>'new tuition'
+// //             ]);
+// //         return redirect()->back()->with('message','Application successfully added');
+// //    }else{
+// //     ApplicationTutor::insert([
+// //         'tutors_id'=>$request->id,
+// //         'name' => 'old tuition',
+// //         'information' =>'old tuition'
+// //         ]);
+// //     return redirect()->back()->with('message','Application added successfully');
+//     //  return view('frontend.pages.tutionPages.tuitionAdmin.admin_login',compact('tuitions'));
+
+// }
+
+public function resisterUser(){
     return view('frontend.pages.tutionPages.tuitionAdmin.admin_resister');
+}
+public function resisterStoreUser(Request $request){
+
+    $request->validate([
+    'name' => 'required|min:3|max:50',
+    'email'=> 'email',
+    'password'=> 'required|min:6',
+    'mobile'=> 'max:13',
+
+    ]);
+
+    $data = new User;
+    $data->naem = $request->naem;
+    $data->email = $request->email;
+    $data->password = bcrypt($request->password);
+    $data->mobile = $request->mobile;
+    $data->save();
+
+    return redirect()->to('/user-login')->with('message','Successfully resistered');
 }
 
     // public function loginAdmin(Request $request){
@@ -255,5 +426,9 @@ public function resisterAdmin(){
     //    }
     // }
 
+    public function logOut(){
+        Session()->flush();
+        return Redirect::to('/')->with('message','Loged Out');
+    }
 }
 

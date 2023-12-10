@@ -26,33 +26,38 @@
 </style>
 <div>
 
-<div class=" bg-primary">
+{{-- <div class=" bg-primary">
     <h2 class="text-center " style="padding:3rem 1px"> শিক্ষক / শিক্ষিকা পরিচয় দিন ইংরেজীতে </h2>
-</div>
+</div> --}}
 <div  class="row" style="background-color:lightseagreen;text-align:center;padding:3rem">
-    <div  class="col-md-3"><img src="./img/place_left.png" style="height: 400px;width:240px" alt=""></div>
+    <div  class="col-md-2"><img src="./img/place_left.png" style="height: 400px;width:240px;margin-left:-2rem" alt=""></div>
 
 
- <div  class="col-md-8 " style="font-size:2.5rem ;border-radius:15px;background-color:ghostwhite;color:black">
-    <h2 class="col-md-9" style="margin-top: 2rem">LOGIN INFORMATION</h2>
-        <form action="{{ url('/teachers_information') }}" method="POST" style="padding:3rem" enctype="multipart/form-data">
-           @csrf
-            <div class="form-row "  >
+    <div  class="col-md-8 " style="font-size:2.5rem ;border-radius:15px;background-color:ghostwhite;color:black">
+        <h2 class="py-3 bg-success" style="border-bottom-left-radius:10px;border-bottom-right-radius:10px">Tutor Information</h2>
+    <form action="{{ url('/teachers-store-info') }}" method="POST" style="padding-top:2rem;padding-left:2rem" enctype="multipart/form-data">
+        @csrf
+            <h2 class="col-md-9" style="margin-top: 2rem">Login Information</h2>
+
+        <div class="form-row "  >
+            <div class="form-group col-md-9" >
+                <input type="email" class="form-control" name="email" placeholder="Enter Email" style="border: .1px solid black">
+            </div>
+
+            <div class="form-group col-md-9" >
+                <input type="password" class="form-control" name="password" placeholder="Enter Password" style="border: .1px solid black">
+            </div>
+
+            <h2 class="col-md-9 " style="margin-top: 3rem">Tutor (CV)</h2>
+
+
               <div class="form-group col-md-9" >
                 <input type="text" class="form-control" name="name" placeholder="Name" style="border: .1px solid black">
               </div>
-              <div class="form-group col-md-9" >
-                <input type="email" class="form-control" name="email" placeholder="Enter Email No:" style="border: .1px solid black">
-              </div>
+
               <div class="form-group col-md-9" >
                 <input type="number" class="form-control" name="mobile" placeholder="Enter Mobile No:" style="border: .1px solid black">
               </div>
-                <h2 class="col-md-9  " style="margin-top: 3rem">TUTOR RESUME</h2>
-
-
-                <div class="form-group col-md-9" >
-                    <input type="text" class="form-control" name="full_name" placeholder="Full Name" style="border: .1px solid black">
-                  </div>
 
               <div class="form-group col-md-9">
                 <select id="inputState" class="form-control" name="gender"  style="border: .1px solid black">
@@ -97,7 +102,7 @@
                 </select>
               </div>
 
-              <div class="col-md-9" style="margin-top: 1rem">
+            <div class="col-md-9" style="margin-top: 1rem">
                 <input class="form-control" id="inputLocation" type="text" name="subject" placeholder="Subject Name" required style="border: .1px solid black" style="margin-top: 3rem">
             </div>
 
@@ -121,7 +126,7 @@
 
 
             <div class="col-md-9" style="margin-top: 1rem">
-                <textarea class="form-control cleditor" id="inputBirthday" type="text" name="experience" placeholder="Share some of your experiences " required style="border: .1px solid black"></textarea>
+                <textarea class="form-control cleditor" id="inputBirthday" type="text" name="experience" placeholder="Share your experiences " required style="border: .1px solid black"></textarea>
             </div>
 
             <div class="col-md-9" style="margin-top: 1rem">
@@ -135,7 +140,7 @@
               </div>
 
 
-            <h2 class="col-md-9 my-5" style="margin-top: 3rem">TUTOR REQUIREMENTS</h2>
+            <h2 class="col-md-9 my-5" style="margin-top: 3rem">Tutor Requirements</h2>
 
 
             <div class="form-group col-md-9" >

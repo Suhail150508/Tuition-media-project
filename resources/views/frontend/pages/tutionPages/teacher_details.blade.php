@@ -145,54 +145,114 @@
 
         <body>
 
-        <div class="row">
-
+    <div class="row">
 
         <div  class="col-md-7" style="background-color:lightgrey;color:blue" >
+            <a class="btn btn-success float-right m-2" href="{{url('/download-pdf-teacher/' . $teachers->id) }}">Download Tutor Info</a>
 
-            <div style="display: flex;margin-top:1rem;margin-left:.6rem">
+            <div style="display: flex;margin-top:1rem;margin-left:4rem">
                 <img src="{{asset('teacher/'.$teachers->image)  }}" alt="" style="height: 15rem;width:15rem">
                <div>
                 <div style="color:#9932cc ;margin:2rem">Aboute: {{$teachers->full_name   }}</div>
-                <p style="color:white;margin:2rem;font-size:1.1rem"> {{$teachers->experience   }}</p>
+                <p style="color:#d45698;margin:2rem;font-size:1.1rem"> {{$teachers->experience   }}</p>
              </div>
             </div>
          <div  class="" style="margin-top:3rem;paddig-left:2rem;margin-left:4rem;width:500px">
-            <h2 class="" style="border-bottom: 5px solid #cc3277">Tutor Details</h2>
-            <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:#9932cc">ID No: </span> {{ $teachers->id + 100 }}</p>
-            <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:#9932cc">Name: </span> {{ $teachers->full_name }}</p>
-            <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">Gender: </span> {{ $teachers->gender }}</p>
-            <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">Institution: </span> {{ $teachers->institution }}</p>
-            <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">Subject: </span> {{ $teachers->subject }}</p>
-            <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid"> District: </span> {{ $teachers->district }}</p>
+            <h2 class="" style="border-bottom: 5px solid #cc3277">{{ __("Tutor Details") }}</h2>
+            <p style="color:#d45698;font-size:1.1rem;font-weight:500"><span style="font-size:1.3rem;color:#9932cc">{{ __("ID No") }}: </span> {{ $teachers->id + 100 }}</p>
+            <p style="color:#d45698;font-size:1.1rem;font-weight:500"><span style="font-size:1.3rem;color:#9932cc">{{ __("Name") }}: </span> {{ $teachers->name }}</p>
+            <p style="color:#d45698;font-size:1.1rem;font-weight:500"><span style="font-size:1.3rem;color:darkorchid">{{ __("Gender") }}: </span> {{ $teachers->gender }}</p>
+            <p style="color:#d45698;font-size:1.1rem;font-weight:500"><span style="font-size:1.3rem;color:darkorchid">{{ __("Institution") }}: </span> {{ $teachers->institution }}</p>
+            <p style="color:#d45698;font-size:1.1rem;font-weight:500"><span style="font-size:1.3rem;color:darkorchid">{{ __("Subject") }}: </span> {{ $teachers->subject }}</p>
+            <p style="color:#d45698;font-size:1.1rem;font-weight:500"><span style="font-size:1.3rem;color:darkorchid"> {{ __("District") }}: </span> {{ $teachers->district }}</p>
+            <p style="color:#d45698;font-size:1.1rem;font-weight:500"><span style="font-size:1.3rem;color:darkorchid"> {{ __("Present address") }}: </span> {{ $teachers->present_address }}</p>
 
          </div>
 
-         <h2 class="" style="border-bottom: 5px solid #cc3277;width:500px;margin-left:4rem;margin-top:3rem">Tutor Requirements</h2>
+         <h2 class="" style="border-bottom: 5px solid #cc3277;width:500px;margin-left:4rem;margin-top:3rem">{{ __("Tutor Requirements") }}</h2>
          <div  class="" style="margin-top:1rem;paddig-left:2rem;margin-left:4rem;width:500px">
-         <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:#9932cc">Available Tuition Schedule : </span> {{ $teachers->schedule}}</p>
-         <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">Expected Students Level: </span> {{ $teachers->student_level }}</p>
-         <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">Prefered Subject: </span> {{ $teachers->prefered_subject }}</p>
-         <p style="color: white;font-size:1.1rem"><span style="font-size:1.3rem;color:darkorchid">Expected Salary: </span> {{ $teachers->salary }}</p>
+         <p style="color:#d45698;font-size:1.1rem;font-weight:500"><span style="font-size:1.3rem;color:#9932cc">{{ __("Available Tuition Schedule") }} : </span> {{ $teachers->schedule}}</p>
+         <p style="color:#d45698;font-size:1.1rem;font-weight:500"><span style="font-size:1.3rem;color:darkorchid">{{ __("Expected Students Level") }}: </span> {{ $teachers->student_level }}</p>
+         <p style="color:#d45698;font-size:1.1rem;font-weight:500"><span style="font-size:1.3rem;color:darkorchid">{{ __("Prefered Subject") }}: </span> {{ $teachers->prefered_subject }}</p>
+         <p style="color:#d45698;font-size:1.1rem;font-weight:500"><span style="font-size:1.3rem;color:darkorchid">{{ __("Expected Salary") }}: </span> {{ $teachers->salary }}</p>
          </div>
+            <div class="my-2">
+            <a class=" button " href="{{ url('/search-tutors') }}" style="font-size:1.6rem;padding:1rem; margin-left:17rem;width:32%">{{ __("View All Tutors") }}</a>
+            </div>
         </div>
 
 
 
                 <div class="col-md-5" style="background-color: darkcyan;height:150vh">
 
-                    <div class="text-white p-5 "  style="background-color:purple;margin-left:-.8rem">
-                        <h3 class="mb-5">Apply for any tutor</h3>
-                        <form action="{{ url('/application_tutor') }}" method="POST"  enctype="multipart/form-data">
-                                @csrf
+                    <div class="text-white p-5 " style="background-color:purple;margin-left:-.8rem">
+                        <h3 class="mb-5">{{ __("Apply for this tutor") }}</h3>
+                        <form action="{{ url('/application-tuition') }}" method="POST"  enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group col-md-9">
+                                <input type="text" class="form-control" name="tutor_id" placeholder="Enter Tutor id" style="border: .1px solid black">
+                            </div>
+                            <div class="form-group col-md-9">
+                                <input type="text" class="form-control" name="name" placeholder="Enter your name" style="border: .1px solid black">
+                            </div>
 
-                            <input type="text" class="form-control" name="tutors_id" placeholder="Enter Tutor id">
-                            <input type="text" class="form-control my-3 py-3" name="name" placeholder="Enter Tutor name">
-                            <textarea class="form-control cleditor py-3" name="information" placeholder="Inter your informations with mobile no:"></textarea>
+                            <div class="form-group col-md-9">
+                                <select id="inputState" class="form-control" name="class" style="border: .1px solid black">
+                                  <option selected > Select your Class </option>
+                                  <option>Five</option>
+                                  <option>Six</option>
+                                  <option>Seven</option>
+                                  <option>Eight</option>
+                                  <option>Nine</option>
+                                  <option>Ten</option>
+                                  <option>Intermediate</option>
+                                </select>
+                              </div>
+                              <div class="form-group col-md-9">
+                                <input type="text" class="form-control" name="subject" placeholder="Enter your subjects,eg: math, english, physics..etc. " style="border: .1px solid black">
+                            </div>
 
-                            <button type="submit" class="button btn-primary" style="width:100%;margin-top:1rem">Submit</button>
+                              <div class="form-group col-md-9">
+                                <select  class="form-control" name="gender" style="border: .1px solid black">
+                                  <option  selected>Select Gender</option>
+                                  <option>male</option>
+                                  <option>female</option>
+                                </select>
+                              </div>
+
+                              <div class="form-group col-md-9">
+                                <select id="inputState" class="form-control" name="district" placeholder="District" style="border: .1px solid black">
+                                  <option selected>Select your District</option>
+                                  <option >Dhaka</option>
+                                  <option>Rajshahi</option>
+                                  <option>Dinajpur</option>
+                                  <option>Rangpur</option>
+                                  <option>Pabna</option>
+                                  <option>Kushtia</option>
+                                  <option>Khulna</option>
+                                  <option>Mymensingh</option>
+                                  <option>Jessore</option>
+                                  <option>Chittagong</option>
+                                </select>
+                              </div>
+
+                              <div class="form-group col-md-9">
+                                  <textarea class="form-control cleditor" name="location" placeholder="Inter your present location" style="border: .1px solid black"></textarea>
+                              </div>
+
+                              <div class="form-group col-md-9" >
+                                <input type="number" class="form-control" name="mobile" placeholder="Inter your mobile number" style="border: .1px solid black">
+                               </div>
+
+                              <div class="form-group col-md-9">
+                                <button type="submit" class="form-control button btn-primary " style="width:100%">{{ __("Apply Now") }}</button>
+                              </div>
+
                         </form>
                     </div>
+
+
+
 
                     {{-- <div class="text-white p-5 "  style="background-color:purple;margin-left:-.8rem">
                         <h2 class="mb-5">Find Tutor accordting to Gender and District</h2>

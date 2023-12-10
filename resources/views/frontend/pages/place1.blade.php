@@ -27,18 +27,29 @@
 </style>
 <div>
 
-<div class=" bg-primary">
+{{-- <div class=" bg-primary">
     <h2 class="text-center " style="padding:3rem 1px"> ছাত্র / ছাত্রির পরিচয় দিন ইংরেজীতে </h2>
-</div>
+</div> --}}
 <div  class="row" style="background-color:lightseagreen;text-align:center;padding:3rem">
     <div  class="col-md-3"><img src="./img/place_left.png" style="height: 400px;width:240px" alt=""></div>
 
 
- <div  class="col-md-8 " style="font-size:2.5rem ;border-radius:15px;background-color:ghostwhite;color:black">
-    <h2 class="col-md-9" style="margin-top:3rem;margin-bottom:2rem">PARENT/STUDENT INFORMATION</h2>
+    <div  class="col-md-8 " style="font-size:2.5rem ;border-radius:15px;background-color:ghostwhite;color:black">
+        <h2 class="py-3 bg-success" style="border-bottom-left-radius:10px;border-bottom-right-radius:10px">Parent/Student Information</h2>
         <form action="{{ url('/places1') }}" method="POST" style="padding:3rem">
-           @csrf
+            @csrf
+
             <div class="form-row "  >
+                <h2 class="col-md-9" style="margin-top: 2rem">Login Information</h2>
+                <div class="form-group col-md-9" >
+                    <input type="email" class="form-control" name="email" placeholder="Enter Email " style="border: .1px solid black">
+                </div>
+
+                <div class="form-group col-md-9" >
+                    <input type="password" class="form-control" name="password" placeholder="Enter Password:" style="border: .1px solid black">
+                </div>
+
+              <h2 class="col-md-9" style="margin-top:2rem;">Student Information</h2>
               <div class="form-group col-md-9" >
                 <input type="text" class="form-control" name="name" placeholder="Name" style="border: .1px solid black">
               </div>
@@ -161,7 +172,7 @@
                   <div class="form-group col-md-9" >
                   <input type="number" class="form-control" name="mobile" placeholder="Mobile number" style="border: .1px solid black">
                  </div>
-                <button type="submit" class=" button btn-success py-4 form-group col-md-3 form-control" style="width: 7rem;height:4rem" >Submit</button>
+                 <button type="submit" class=" button  py-4  col-md-9 " style="height:4rem" >Submit</button>
               </form>
 
     </div>

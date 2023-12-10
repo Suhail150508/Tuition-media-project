@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\NewStudent;
+use App\Notifications\NewNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -16,7 +17,10 @@ public function places1(){
 public function store(Request $request){
    $places1 = new NewStudent();
    $places1->name = $request->name ;
+   $places1->email = $request->email;
+   $places1->password = $request->password;
    $places1->class = $request->class;
+   $places1->user = 'tuition';
    $places1->subject = $request->subject;
    $places1->medium = $request->medium;
    $places1->gender = $request->gender;
@@ -30,20 +34,22 @@ public function store(Request $request){
 
 
    $places1->save();
-   return back()->with('message','Success! ধন্যবাদ ');
+
+   $places1->notify(new NewNotification($places1));
+   return redirect()->to('/login-tuition')->with('message','Success! ধন্যবাদ ');
 
 }
 
 
 public function student_details($id){
-$students = NewStudent::find($id);
+    $students = NewStudent::find($id);
 
-$dhaka = NewStudent::where('district','Dhaka')->get();
-$dinajpur = NewStudent::where('district','Dinajpur')->get();
-$pabna = NewStudent::where('district','Pabna')->get();
-$rangpur = NewStudent::where('district','Rangpur')->get();
+    $dhaka = NewStudent::where('district','Dhaka')->get();
+    $dinajpur = NewStudent::where('district','Dinajpur')->get();
+    $pabna = NewStudent::where('district','Pabna')->get();
+    $rangpur = NewStudent::where('district','Rangpur')->get();
 
-return view('frontend.pages.tutionPages.student_details',compact('students','dhaka','dinajpur','pabna','rangpur'));
+    return view('frontend.pages.tutionPages.student_details',compact('students','dhaka','dinajpur','pabna','rangpur'));
 }
 
 public function student_all(){
@@ -55,14 +61,14 @@ public function student_all(){
 
 
 public function places2(){
-$dhaka = NewStudent::where('district','Dhaka')->get();
-$dinajpur = NewStudent::where('district','Dinajpur')->get();
-$pabna = NewStudent::where('district','Pabna')->get();
-$rangpur = NewStudent::where('district','Rangpur')->get();
+    $dhaka = NewStudent::where('district','Dhaka')->get();
+    $dinajpur = NewStudent::where('district','Dinajpur')->get();
+    $pabna = NewStudent::where('district','Pabna')->get();
+    $rangpur = NewStudent::where('district','Rangpur')->get();
     return view('frontend.pages.tutionPages.student_details',compact('dhaka','dinajpur','pabna','rangpur'));
 }
 public function location(Redirect $redirect, $location){
-$location = NewStudent::where('location',$location)->get();
+    $location = NewStudent::where('location',$location)->get();
     return view('frontend.pages.tutionPages.student_all',compact('location'));
 }
 

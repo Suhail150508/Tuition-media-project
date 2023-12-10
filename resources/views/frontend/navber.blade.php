@@ -12,7 +12,6 @@
                         @foreach ($categories as $category )
 
 
-
                         <li><a href="{{ url('/product_by_cat'.$category->id) }}">{{ $category->name }}</a></li>
                         @endforeach
 

@@ -1,0 +1,108 @@
+{
+    "Home" : "হোম",
+    "Tutors" : "গৃহশিক্ষক",
+    "Tuitions" : "টিউশনি",
+    "Contact" : "যোগাযোগ",
+    "Sign in" : "সাইন ইন",
+    "Sign up" : "নিবন্ধন করুন",
+    "Login Tutor" : "লগইন শিক্ষক",
+    "Login Tuition" : "লগইন টিউশন",
+    "Sign up" : "নিবন্ধন করুন",
+    "Register Tutor" : "রেজিস্টার টিউটর",
+    "Register Tuition" : "রেজিস্টার টিউশন",
+    "Your Profile" : "আপনার প্রোফাইল",
+    "Change Password" : "পাসওয়ার্ড পরিবর্তন করুন",
+    "Log out" : "প্রস্থান",
+
+
+    "Featured Tutors" : "বৈশিষ্ট্যযুক্ত শিক্ষক",
+    "There are many featured tutors here" : "এখানে অনেক বৈশিষ্ট্যযুক্ত টিউটর রয়েছে",
+    "They are very good intelizent and experienced" : "তারা খুব ভাল বুদ্ধিমান এবং অভিজ্ঞ",
+    "They have included own informations in this card" : "তারা এই কার্ডে নিজস্ব তথ্য অন্তর্ভুক্ত করেছে",
+    "They are looking for good student to teach" : "তারা শেখানোর জন্য ভালো শিক্ষার্থী খুঁজছে",
+    "Click on the card if you want to see the tutor details" : "আপনি যদি শিক্ষকের বিবরণ দেখতে চান তাহলে কার্ডে ক্লিক করুন",
+
+
+
+    "View All Tutors" : "সমস্ত টিউটর দেখুন",
+    "Apply Now" : "আবেদন করুন",
+
+
+    "Available Tuition" : "আয়ত্তগত টিউশন",
+    "There are many students here" : "এখানে অনেক ছাত্র আছে",
+    "They are looking for a good teacher" : "তারা একজন ভালো শিক্ষক খুঁজছেন",
+    "View All Tuitions" : "সমস্ত টিউশন দেখুন",
+
+
+    "Our Services" : "আমাদের সেবাসমূহ",
+    "This website is providing many services like providing tuition" : "এই ওয়েবসাইট টিউশন প্রদানের মত অনেক সেবা প্রদান করছে",
+    "website design and development" : "ওয়েবসাইট ডিজাইন এবং উন্নয়ন",
+
+    "Tutor Provide" : "টিউটর প্রদান",
+    "Website Design" : "ওয়েবসাইট ডিজাইন",
+
+    "Here we give meritorious students of engineering" : "এখানে আমরা ইঞ্জিনিয়ারিং এর মেধাবী ছাত্রদের দিয়ে থাকি",
+    "doctor and other subjects for private" : " ডাক্তার এবং অন্যান্য বিষয়ের মেধাবী ছাত্রদের দিই",
+    "We provide tutors and tuitions in Bangladesh area" : "আমরা বাংলাদেশ এলাকায় টিউটর এবং টিউশন প্রদান করি",
+
+    "This website provides various types of website design such as" : "এই ওয়েবসাইটটি বিভিন্ন ধরনের ওয়েবসাইট ডিজাইন প্রদান করে যেমন",
+    "Personal website" : "ব্যক্তিগত ওয়েবসাইট",
+    "Ecommerce website" : "ইকমার্স ওয়েবসাইট",
+    "Community website" : "কমিউনিটি ওয়েবসাইট",
+    "School management website" : "স্কুল ম্যানেজমেন্ট ওয়েবসাইট",
+    "We provide varius types of website design and development in Bangladesh area" : "আমরা বাংলাদেশ এলাকায় বিভিন্ন ধরনের ওয়েবসাইট ডিজাইন এবং ডেভেলপমেন্ট প্রদান করি",
+
+
+    "A few talk about our website" : "আমাদের ওয়েবসাইট সম্পর্কে কিছু কথা",
+    "This website has designed by php language with laravel framework" : "এই ওয়েবসাইটটি ল্যারাভেল ফ্রেমওয়ার্ক সহ পিএইচপি ভাষা দ্বারা ডিজাইন করা হয়েছে",
+    "This website provides Tutors and Tuitions in bangladesh area" : "এই ওয়েবসাইটটি বাংলাদেশ এলাকায় টিউটর এবং টিউশন প্রদান করে",
+    "And provides website design and development" : "এবং ওয়েবসাইট ডিজাইন এবং ডেভেলপমেন্ট প্রদান করে",
+    "Our mission is to bring convenience to everyone" : "আমাদের লক্ষ্য সবার জন্য সুবিধা নিয়ে আসা",
+    "You can visit my personal website" : "আপনি আমার ব্যক্তিগত ওয়েবসাইট পরিদর্শন করতে পারেন",
+    "VISIT" : "ভিজিট করুন",
+
+
+
+    "Video" : "ভিডিও",
+    "Sometimes we need refreshment" : "মাঝে মাঝে আমাদের রিফ্রেশমেন্টের প্রয়োজন হয়",
+    "Let us listen some important boyan" : "আসুন কিছু গুরুত্বপূর্ণ বয়ান শুনি",
+
+    "Stay with us" : "আমাদের সাথে থাকুন",
+    "Sent your opinion about any matter and Stay with us" : "যে কোন বিষয়ে আপনার মতামত পাঠান এবং আমাদের সাথে থাকুন",
+
+
+    "Apply for this tutor" : "এই শিক্ষকের জন্য আবেদন করুন",
+    "Tutor Details" : "টিউটরের বিশদ বিবরণ",
+    "ID No" : "আইডি কোড",
+    "Name" : "নাম",
+    "Gender" : "লিঙ্গ",
+    "Institution" : "প্রতিষ্ঠান",
+    "Subject" : "বিষয়",
+    "District" : "জেলা",
+    "Present address" : "বর্তমান ঠিকানা",
+    "Tutor Requirements" : "শিক্ষকের প্রয়োজনীয়তা",
+
+    "Available Tuition Schedule" : "উপলব্ধ টিউশন সময়সূচী",
+    "Expected Students Level" : "প্রত্যাশিত ছাত্র স্তর",
+    "Prefered Subject" : "পছন্দের বিষয়",
+    "Expected Salary" : "প্রত্যাশিত বেতন",
+
+
+    "Location" : "ঠিকানা",
+    "Class" : "বিভাগ",
+    "Medium" : "মধ্যম",
+    "Apply for this tuition" : "এই টিউশনের জন্য আবেদন করুন",
+
+
+    "Search Tuition for any feature" : "যেকোনো বৈশিষ্ট্যের জন্য টিউশন অনুসন্ধান করুন",
+    "Search Tutors for any feature" : "যেকোনো বৈশিষ্ট্যের জন্য শিক্ষক অনুসন্ধান করুন",
+    "Search" : "অনুসন্ধান করুন",
+
+
+    "Not data found" : "তথ্য পাওয়া যায়নি"
+
+
+
+
+
+}

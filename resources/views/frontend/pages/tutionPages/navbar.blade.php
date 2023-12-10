@@ -66,7 +66,8 @@
 
 
             <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="/"><img src="newtem/images/logo.jpg" alt="alternative" style="height: 70px;margin-top:-1rem"></a>
+            {{-- <a class="navbar-brand logo-image" href="/"><img src="newtem/images/logo.jpg" alt="alternative" style="height: 70px;margin-top:-1rem"></a> --}}
+            <a class="navbar-brand" href="/"><img class="logo1-image" src="newtem/images/logoimage.png" alt="alternative" style="height: 70px;border-radius:50px"></a>
 
             <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
                 <span class="navbar-toggler-icon"></span>

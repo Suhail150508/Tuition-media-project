@@ -71,17 +71,17 @@ outline-offset:8px;
 <div class="row">
 
 
-<div class="col-md-8" style="background-color:lightgray;margin-top:-1.6rem">
-    <div class="" style="display:flex;flex-wrap:wrap;width:100%;margin:1rem;box-sizing:border-box">
+<div class="col-md-9" style="background-color:lightgray;margin-top:.5rem;margin-top:-1.6rem">
+    <div class="m" style="display:flex;flex-wrap:wrap;width:100%;box-sizing:border-box">
         @if ($tutors->isNotEmpty())
             @foreach ($tutors as $tutor)
-                <div class="card mb-3 single-education-card" style="width: 340px;margin-left:.7rem;height:180px;overflow:hidden"><a
+                <div class="card mb-2 single-education-card" style="width: 310px;margin-left:.6rem;height:180px;overflow:hidden"><a
                         href="{{ url('/teacher_details/' . $tutor->id) }}" style="color: whitesmoke">
 
                     <div class="d-flex ">
                         <div class="inner">
                             <img src="{{ asset('/teacher/' . $tutor->image) }}" alt="img"
-                                style="height: 140px;width:190px">
+                                style="height: 140px;width:170px">
                         </div>
                         <div class=" ">
                             <div class="card-body" style="height:600px;">
@@ -122,7 +122,7 @@ outline-offset:8px;
 @endforeach --}}
 
 @else
-<h2>Not data found</h2>
+<h2>{{ __("Not data found") }}</h2>
 @endif
 <div class="mt-4" style="margin-left: 35rem">
     {{ $tutors->withQueryString()->links() }}
@@ -131,16 +131,16 @@ outline-offset:8px;
 </div>
 
 
-<div class="col-md-4 bg-secondary" style="margin-top:-1.6rem">
-<div class="p-5 text-white "  style="background-color:purple;">
+<div class="col-md-3 bg-secondary" style="margin-top:-1.6rem">
+    <div class=" text-white " style="background-color:purple;">
 
-          <div class="col-md-12 py-5">
-            <h3>Search Tutors for any feature</h3>
+          <div class="col-md-12 py-3">
+            <h3>{{ __("Search Tutors for any feature") }}</h3>
 
-            <form action="/search-tutors">
+            <form action="/search-tutors" class="pt-5">
                 @csrf
-                <input class="py-2 form-control" style="width:100%" type="text" name="search" placeholder="Search.. Ex.  Ins: Sub: dist:" value="{{ isset($search) ? $search :'' }}"/>
-                <button type="submit" class="btn btn-success" style="width: 100%;font-size:1.4rem; margin-top:1rem">Search </button>
+                <input class="py-3 form-control" style="width:100%" type="text" name="search" placeholder="Search.. Ex.  Ins: Sub: dist:" value="{{ isset($search) ? $search :'' }}"/>
+                <button type="submit" class="default-btn btn py-2" style="width: 100%;font-size:1.4rem; margin-top:1rem">{{ __("Search") }} </button>
             </form>
         </div>
 

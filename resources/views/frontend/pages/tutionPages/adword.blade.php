@@ -52,12 +52,12 @@ outline-offset:8px;
                 </div> --}}
                 <div class=" ">
                     <div class="card-body" style="height:600px;">
-                        <p class="" style="color:lightgray;margin-top:-.8rem"> <span style="font-size:1.2rem;color:#ffff">Name: </span> {{ $student->name }}</p>
-                        <p class="" style="color:lightgray;margin-top:-.8rem"> <span style="font-size:1.2rem;color:#ffff">Class: </span> {{ $student->class}}</p>
-                        <p class="" style="color:lightgray;margin-top:-.8rem"> <span style="font-size:1.2rem;color:#ffff">Medium: </span> {{ $student->medium }}</p>
-                        <p class="" style="color:lightgray;margin-top:-.8rem"> <span style="font-size:1.2rem;color:#ffff">Schedule:</span> {{ $student->schedule }}</p>
-                        <p class="" style="color:lightgray;margin-top:-.8rem"> <span style="font-size:1.2rem;color:#ffff">Days:</span> {{ $student->days }}</p>
-                        <p class="" style="color:lightgray;margin-top:-.8rem"> <span style="font-size:1.2rem;color:#ffff">Salary:</span> {{ $student->salary }}</p>
+                        <p class="" style="color:black;font-size:1.2rem;margin-top:-.8rem"> <span style="font-size:1.2rem;color:#ffff">Name: </span> {{ $student->name }}</p>
+                        <p class="" style="color:black;font-size:1.2rem;margin-top:-.8rem"> <span style="font-size:1.2rem;color:#ffff">Class: </span> {{ $student->class}}</p>
+                        <p class="" style="color:black;font-size:1.2rem;margin-top:-.8rem"> <span style="font-size:1.2rem;color:#ffff">Medium: </span> {{ $student->medium }}</p>
+                        <p class="" style="color:black;font-size:1.2rem;margin-top:-.8rem"> <span style="font-size:1.2rem;color:#ffff">Schedule:</span> {{ $student->schedule }}</p>
+                        <p class="" style="color:black;font-size:1.2rem;margin-top:-.8rem"> <span style="font-size:1.2rem;color:#ffff">Days:</span> {{ $student->days }}</p>
+                        <p class="" style="color:black;font-size:1.2rem;margin-top:-.8rem"> <span style="font-size:1.2rem;color:#ffff">Salary:</span> {{ $student->salary }}</p>
                         {{-- <p>This is a respected teacher, so you have to respect him/har ,because he is a
                             teacher ,otherwise you can not shine your life .</p> --}}
                     </div>
@@ -88,7 +88,7 @@ outline-offset:8px;
         </div>
     @endforeach --}}
         @else
-        <h2 >Not data found</h2>
+        <h2 >{{ __("Not data found") }}</h2>
         @endif
 
 <div class="" style="margin-left: 24rem">
@@ -100,12 +100,12 @@ outline-offset:8px;
 <div class="col-md-4" style="background-color: darkseagreen">
 
 <div class="col-md-12 py-5">
-    <h3>Search Tuition for any feature</h3>
+    <h3>{{ __("Search Tuition for any feature") }}</h3>
 
     <form action="/search-tuition">
         @csrf
-        <input class="py-2 form-control" style="width:100%" type="text" name="search" placeholder="Search.. Ex. Sub: Class: medium: salary " value="{{ isset($search) ? $search :'' }}"/>
-        <button type="submit" class="btn btn-success" style="width: 100%;font-size:1.4rem; margin-top:1rem">Search</button>
+        <input class="py-3 form-control" style="width:100%" type="text" name="search" placeholder="Search.. Ex. Sub: Class: medium: salary " value="{{ isset($search) ? $search :'' }}"/>
+        <button type="submit" class="default-btn btn p-2" style="width: 100%;font-size:1.4rem; margin-top:1rem">{{ __("Search") }}</button>
     </form>
 </div>
 </div>
